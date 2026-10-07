@@ -14,11 +14,12 @@ Venue UI is an accessible React component library and design system built using 
 
 ## Components
 
-| Component | Status |
-| Button | In progress |
-| TextInput | In Progress |
-| PhoneInput | In Progress |
-| Card | In Progress |
+| Component  | Status         |
+| ---------- | -------------- |
+| Button     | 🟡 In progress |
+| TextInput  | 🟡 In Progress |
+| PhoneInput | 🟡 In Progress |
+| Card       | 🟡 In Progress |
 
 ## Installation
 
