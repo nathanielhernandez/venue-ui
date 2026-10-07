@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+:root {
+  --venue-font-family-sans: "Archivo", system-ui, -apple-system, sans-serif;
+  --venue-font-family-mono: "Roboto Mono", system-ui, -apple-system, mono;
+
+  --venue-font-size-xs: 0.75rem;
+  --venue-font-size-sm: 0.875rem;
+  --venue-font-size-md: 1rem;
+  --venue-font-size-lg: 1.25rem;
+
+  --venue-font-weight-regular: 400;
+  --venue-font-weight-medium: 500;
+  --venue-font-weight-semibold: 600;
+  --venue-font-weight-bold: 700;
+}

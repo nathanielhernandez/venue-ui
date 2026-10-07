@@ -1,0 +1,18 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--venue-space-2);
+  padding: var(--venue-space-2) var(--venue-space-4);
+  border: none;
+  background: var(--venue-blue-primary);
+  color: var(--venue-gray-900);
+}
+
+.danger {
+  background: var(--venue-color-danger);
+}
+
+.danger:hover:not(:disabled) {
+  background: var(--venue-color-danger-hover);
+}

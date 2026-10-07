@@ -1,0 +1,14 @@
+:root {
+  --venue-color-blue: #00c2ff;
+
+  --venue-color-red: #ff5335;
+
+  --venue-gray-900: #08090a;
+  --venue-gray-850: #0e1114;
+  --venue-gray-800: #181f22;
+  --venue-gray-750: #252b31;
+  --venue-gray-500: #637281;
+  --venue-gray-200: #a0a0a0;
+
+  --venue-white: #fff;
+}

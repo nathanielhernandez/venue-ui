@@ -1,0 +1,6 @@
+:root {
+  --venue-radius-sm: 4px;
+  --venue-radius-md: 8px;
+  --venue-radius-lg: 16px;
+  --venue-radius-full: 100%;
+}

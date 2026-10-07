@@ -1,0 +1,22 @@
+:root {
+  color-scheme: light;
+
+  /* Backgrounds */
+
+  --venue-color-bg: var(--venue-background-light);
+  --venue-color-surface: var(--venue-white);
+  --venue-color-text-muted: var(--venue-gray-500);
+
+  /* Borders */
+
+  --venue-color-border: var(--venue-gray-300);
+
+  /* Text Colors */
+
+  --venue-color-text-muted: var(--venue-gray-500);
+  --venue-color-text: var(--venue-gray-700);
+
+  --venue-color-focus-ring: var(--venue-blue-primary);
+
+  --venue-color-danger: var(--venue-red-600);
+}

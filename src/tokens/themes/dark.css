@@ -1,0 +1,26 @@
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Backgrounds */
+
+  --venue-color-bg: var(--venue-gray-850);
+  --venue-color-component-bg: var(--venue-gray-800);
+  --venue-color-surface: var(--venue-gray-850);
+
+  /* Borders */
+
+  --venue-color-border: var(--venue-gray-500);
+
+  /* Text Colors */
+
+  --venue-color-text-muted: var(--venue-gray-200);
+  --venue-color-text: var(--venue-white);
+
+  /* States */
+  --venue-color-focus-ring: var(--venue-color-blue);
+
+  --venue-color-danger: var(--venue-color-red);
+
+  --venue-color-surface-stroke: var(--venue-border-width-thin) solid
+    var(--venue-gray-750);
+}
