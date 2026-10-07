@@ -2,6 +2,7 @@
 
 Venue UI is an accessible React component library and design system built using CSS Modules. Supports light and dark themes.
 
+> [!WARNING]
 > **Status:** early development. APIs will change between minor versions.
 
 ## Features
@@ -21,6 +22,7 @@ Venue UI is an accessible React component library and design system built using 
 
 ## Installation
 
+> [!CAUTION]
 > Not yet published to npm. Coming in future release.
 
 ```bash
@@ -29,7 +31,7 @@ npm install @nathanielhernandez/venue-ui
 
 ## Usage
 
-Impor the tokens once at your app's entry point, then use components:
+Import the tokens once at your app's entry point, then use components:
 
 ```tsx
 import "@nathanielhernandez/venue-ui/tokens.css";
