@@ -122,4 +122,4 @@ See [CHANGELOG.md](./CHANGELOG.md).
 
 ## License
 
-[MIT](./LICENSE) © <year> <your name>
+[MIT](./LICENSE) © 2026 Nathaniel Hernandez
