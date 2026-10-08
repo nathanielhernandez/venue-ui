@@ -2,12 +2,9 @@ import { useId, useState, type ComponentPropsWithRef } from "react";
 import styles from "./Input.module.css";
 import { WarningIcon } from "../../icons/WarningIcon";
 
-type InputTypes = "text" | "email";
+type InputTypes = "text" | "email" | "tel" | "url";
 
-type BaseInputProps = Omit<
-  ComponentPropsWithRef<"input">,
-  "type" | "min" | "max" | "step" | "size"
-> & {
+type BaseInputProps = Omit<ComponentPropsWithRef<"input">, "type" | "size"> & {
   label: string;
   error?: boolean;
   errorMessage?: string;

@@ -18,7 +18,7 @@ const meta = {
     size: "large",
   },
   argTypes: {
-    type: { control: "select", options: ["text", "email"] },
+    type: { control: "select", options: ["text", "email", "tel", "url"] },
     size: {
       control: "select",
       options: ["small", "medium", "large", "xlarge"],
