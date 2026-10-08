@@ -19,6 +19,10 @@ const meta = {
     onClick: fn(),
   },
   argTypes: {
+    variant: {
+      control: "select",
+      options: ["primary", "secondary", "tertiary"],
+    },
     size: {
       control: "select",
       options: ["small", "medium", "large", "xlarge"],
@@ -34,6 +38,12 @@ const meta = {
         rocket: <FaRocket />,
       },
       control: "select",
+    },
+    rounded: {
+      control: "boolean",
+    },
+    type: {
+      control: false,
     },
   },
 } satisfies Meta<typeof Button>;
