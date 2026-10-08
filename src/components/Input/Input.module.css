@@ -93,7 +93,7 @@
     visibility 0s; /* show immediately */
 }
 
-/* HELP TEXT */
+/* DESCRIPTION */
 
 .description {
   font-family: var(--venue-font-family-sans);
@@ -148,5 +148,7 @@
 
 .messagesInner > * {
   grid-area: 1/1; /* Overlap messages */
-  padding-top: var(--venue-space-1); /* spacing from the input; collapses with the row */
+  padding-top: var(
+    --venue-space-1
+  ); /* spacing from the input; collapses with the row */
 }

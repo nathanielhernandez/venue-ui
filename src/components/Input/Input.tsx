@@ -2,14 +2,29 @@ import { useId, useState, type ComponentPropsWithRef } from "react";
 import styles from "./Input.module.css";
 import { WarningIcon } from "../../icons/WarningIcon";
 
-export type InputProps = ComponentPropsWithRef<"input"> & {
-  /** Label for text input, e.g. "Name" */
+type BaseInputProps = Omit<
+  ComponentPropsWithRef<"input">,
+  "type" | "min" | "max" | "step"
+> & {
   label: string;
   error?: boolean;
   errorMessage?: string;
   description?: string;
   rounded?: boolean;
 };
+
+type TextInputProps = BaseInputProps & {
+  type?: "text" | "email";
+};
+
+type NumberInputProps = BaseInputProps & {
+  type: "number";
+  min?: number;
+  max?: number;
+  step?: number;
+};
+
+export type InputProps = TextInputProps | NumberInputProps;
 
 export function Input({
   label,

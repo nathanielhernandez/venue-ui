@@ -17,7 +17,10 @@ const meta = {
     rounded: true,
   },
   argTypes: {
-    type: { control: false },
+    type: { control: "select", options: ["text", "email", "number"] },
+    min: { control: "number", if: { arg: "type", eq: "number" } },
+    max: { control: "number", if: { arg: "type", eq: "number" } },
+    step: { control: "number", if: { arg: "type", eq: "number" } },
     onChange: { action: "changed" },
   },
 } satisfies Meta<typeof Input>;
