@@ -16,7 +16,7 @@
   --venue-color-text-muted: var(--venue-gray-500);
   --venue-color-text: var(--venue-gray-700);
 
-  --venue-color-focus-ring: var(--venue-blue-primary);
+  --venue-color-focus-ring: var(--venue-blue-600);
 
   --venue-color-danger: var(--venue-red-600);
 }

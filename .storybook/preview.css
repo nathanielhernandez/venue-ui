@@ -1,10 +1,10 @@
 body {
-  background: var(--venue-color-bg);
+  background: var(--venue-color-surface);
   color: var(--venue-color-text);
   font-family: var(--venue-font-family-sans);
 }
 
 /* docs pages: example boxes use our page background, not Storybook's */
 .docs-story {
-  background: var(--venue-color-bg);
+  background: var(--venue-color-surface);
 }

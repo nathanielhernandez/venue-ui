@@ -5,15 +5,15 @@
   gap: var(--venue-space-2);
 
   padding: var(--venue-space-3) var(--venue-space-5);
-  border: var(--venue-border-transparent);
-  border-radius: var(--venue-radius-md);
+  border: var(--venue-border-width-thin) solid
+    var(--venue-button-primary-border);
 
   font-weight: var(--venue-font-weight-semibold);
   font-size: var(--venue-font-size-sm);
   font-family: var(--venue-font-family-sans);
   color: var(--venue-color-text);
 
-  background: var(--venue-color-primary);
+  background: var(--venue-button-primary-bg);
 
   cursor: pointer;
   transition: background-color var(--venue-duration-normal)
@@ -21,15 +21,15 @@
 }
 
 .root:hover:not(:disabled) {
-  background-color: var(--venue-color-primary-hover);
+  background-color: var(--venue-button-primary-bg-hover);
 }
 
 .root:active:not(:disabled) {
-  background-color: var(--venue-color-primary-active);
+  background-color: var(--venue-button-primary-bg-active);
 }
 
 .root:focus-visible {
-  outline: var(--venue-focus-ring);
+  outline: var(--venue-border-width-thick) solid var(--venue-color-focus-ring);
   outline-offset: var(--venue-border-width-thick);
 }
 
@@ -41,63 +41,79 @@
 /* SECONDARY BUTTON STYLES */
 
 .secondary {
-  background: var(--venue-color-component-bg);
-  border: var(--venue-border);
+  background: var(--venue-button-secondary-bg);
+  border-color: var(--venue-button-secondary-border);
 }
 
 .secondary:hover:not(:disabled) {
-  background: var(--venue-color-component-bg-hover);
+  background: var(--venue-button-secondary-bg-hover);
 }
 
 .secondary:active:not(:disabled) {
-  background: var(--venue-color-component-bg-active);
+  background: var(--venue-button-secondary-bg-active);
 }
 
 /* TERTIARY BUTTON STYLES */
 
 .tertiary {
-  background: none;
-  color: var(--venue-color-primary);
+  background: var(--venue-button-tertiary-bg);
+  color: var(--venue-button-tertiary-text);
+  border: var(--venue-border-width-thin) solid
+    var(--venue-button-tertiary-border);
 }
 
 .tertiary:hover:not(:disabled) {
-  background: var(--venue-gray-800);
+  background: var(--venue-button-tertiary-bg-hover);
 }
 
 .tertiary:active:not(:disabled) {
-  background: var(--venue-gray-750);
+  background: var(--venue-button-tertiary-bg-active);
 }
 
 /* DANGER BUTTON STYLES */
 
 .danger {
-  background: var(--venue-color-danger);
+  background: var(--venue-button-danger-bg);
+  border: var(--venue-border-width-thin) solid var(--venue-button-danger-border);
+  color: var(--venue-button-danger-text);
 }
 
 .danger:hover:not(:disabled) {
-  background: var(--venue-color-danger-hover);
+  background: var(--venue-button-danger-bg-hover);
 }
 
 .danger:active:not(:disabled) {
-  background: var(--venue-color-danger-active);
+  background: var(--venue-button-danger-bg-active);
 }
 
 /* SIZES */
 
-.smallButton {
+.small {
   padding: var(--venue-space-2) var(--venue-space-4);
 }
 
-.mediumButton {
+.medium {
   padding: var(--venue-space-3) var(--venue-space-5);
 }
 
-.largeButton {
+.large {
   padding: var(--venue-space-4) var(--venue-space-6);
 }
 
-.xlargeButton {
+.xlarge {
   padding: var(--venue-space-5) var(--venue-space-7);
+  font-size: var(--font-size-xl);
 }
 
-/* UNIVERSAL STYLES */
+/* RADIUS */
+
+.rounded {
+  border-radius: var(--venue-radius-md);
+}
+
+/* ICON */
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+}

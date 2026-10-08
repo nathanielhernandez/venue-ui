@@ -1,6 +1,6 @@
 .root {
   background-color: var(--venue-color-surface);
-  border: var(--venue-color-surface-stroke);
+  border: var(--venue-border-width-thin) solid var(--venue-color-surface-border);
   padding: var(--venue-space-4);
   color: var(--venue-color-text);
   border-radius: var(--venue-radius-md);
