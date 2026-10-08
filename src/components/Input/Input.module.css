@@ -1,7 +1,7 @@
 .root {
   --_fill: var(--venue-input-bg);
   --_padding-y: var(--venue-space-3);
-  --_padding-x: var(--venue-space-5);
+  --_padding-x: var(--venue-space-4);
 
   padding: var(--_padding-y) var(--_padding-x);
   border: var(--venue-border-width-thin) solid var(--venue-color-border);
@@ -50,7 +50,7 @@
 
 .required {
   margin-inline-start: var(--venue-space-1);
-  color: var(--venue-color-danger);
+  color: var(--venue-input-required);
 }
 
 /* ERROR */
@@ -151,4 +151,33 @@
   padding-top: var(
     --venue-space-1
   ); /* spacing from the input; collapses with the row */
+}
+
+/* SIZES */
+
+.small {
+  --_padding-y: var(--venue-space-2);
+  --_paddying-x: var(--venue-space-3);
+
+  font-size: var(--venue-font-size-xs);
+}
+
+.medium {
+  --_padding-y: var(--venue-space-3);
+  --_padding-x: var(--venue-space-4);
+
+  font-size: var(--venue-font-size-sm);
+}
+
+.large {
+  --_padding-y: var(--venue-space-4);
+  --_padding-x: var(--venue-space-5);
+  font-size: var(--venue-font-size-md);
+}
+
+.xlarge {
+  --_padding-y: var(--venue-space-5);
+  --_padding-x: var(--venue-space-6);
+
+  font-size: var(--venue-font-size-lg);
 }

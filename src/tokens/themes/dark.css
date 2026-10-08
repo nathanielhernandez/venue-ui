@@ -58,7 +58,10 @@
   /* ----- TEXT INPUTS ----- */
 
   /* Default */
-  --venue-input-bg: var(--venue-gray-800);
+  --venue-input-bg: none;
+
+  /* Required */
+  --venue-input-required: var(--venue-red-300);
 
   /* Error */
   --venue-input-danger-text: var(--venue-red-300);

@@ -4,13 +4,14 @@ import { WarningIcon } from "../../icons/WarningIcon";
 
 type BaseInputProps = Omit<
   ComponentPropsWithRef<"input">,
-  "type" | "min" | "max" | "step"
+  "type" | "min" | "max" | "step" | "size"
 > & {
   label: string;
   error?: boolean;
   errorMessage?: string;
   description?: string;
   rounded?: boolean;
+  size?: "small" | "medium" | "large" | "xlarge";
 };
 
 type TextInputProps = BaseInputProps & {
@@ -35,6 +36,7 @@ export function Input({
   errorMessage,
   description,
   rounded = true,
+  size = "large",
   ...props
 }: InputProps) {
   const generatedId = useId();
@@ -49,6 +51,7 @@ export function Input({
     styles.root,
     error && styles.error,
     rounded && styles.rounded,
+    size && styles[size],
     className,
   ]
     .filter(Boolean)

@@ -15,9 +15,14 @@ const meta = {
     disabled: false,
     description: "",
     rounded: true,
+    size: "large",
   },
   argTypes: {
     type: { control: "select", options: ["text", "email", "number"] },
+    size: {
+      control: "select",
+      options: ["small", "medium", "large", "xlarge"],
+    },
     min: { control: "number", if: { arg: "type", eq: "number" } },
     max: { control: "number", if: { arg: "type", eq: "number" } },
     step: { control: "number", if: { arg: "type", eq: "number" } },
