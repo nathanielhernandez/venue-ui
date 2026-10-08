@@ -1,6 +1,6 @@
 import { useId, useState, type ComponentPropsWithRef } from "react";
 import styles from "./Input.module.css";
-import { IoWarningSharp } from "react-icons/io5";
+import { WarningIcon } from "../../icons/WarningIcon";
 
 export type InputProps = ComponentPropsWithRef<"input"> & {
   /** Label for text input, e.g. "Name" */
@@ -73,7 +73,7 @@ export function Input({
           className={styles.errorText}
           data-visible={error ? "true" : "false"}
         >
-          <IoWarningSharp aria-hidden="true" /> {shownMessage}
+          <WarningIcon aria-hidden="true" /> {shownMessage}
         </span>
       </div>
     </div>
