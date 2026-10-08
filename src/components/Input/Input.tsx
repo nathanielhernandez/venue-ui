@@ -39,8 +39,14 @@ export function Input({
     .filter(Boolean)
     .join(" ");
 
+  const showError = Boolean(error && shownMessage);
+
   const describedBy =
-    [description && descriptionId, error && errorId, props["aria-describedby"]]
+    [
+      description && !showError && descriptionId,
+      showError && errorId,
+      props["aria-describedby"],
+    ]
       .filter(Boolean)
       .join(" ") || undefined;
 
@@ -54,28 +60,41 @@ export function Input({
           </span>
         )}
       </label>
-      <div className={styles.helpWrapper}>
-        <input
-          {...props}
-          id={inputId}
-          className={classes}
-          required={required}
-          aria-invalid={error || undefined}
-          aria-describedby={describedBy}
-        />
-        {description && (
-          <span id={descriptionId} className={styles.description}>
-            {description}
-          </span>
-        )}
-        <span
-          id={errorId}
-          className={styles.errorText}
-          data-visible={error ? "true" : "false"}
+      <input
+        {...props}
+        id={inputId}
+        className={classes}
+        required={required}
+        aria-invalid={error || undefined}
+        aria-describedby={describedBy}
+      />
+      {(description || shownMessage) && (
+        <div
+          className={styles.messages}
+          data-open={description || showError ? "true" : "false"}
         >
-          <WarningIcon aria-hidden="true" /> {shownMessage}
-        </span>
-      </div>
+          <div className={styles.messagesInner}>
+            {description && (
+              <span
+                id={descriptionId}
+                className={styles.description}
+                data-visible={!showError ? "true" : "false"}
+              >
+                {description}
+              </span>
+            )}
+            {shownMessage && (
+              <span
+                id={errorId}
+                className={styles.errorText}
+                data-visible={showError ? "true" : "false"}
+              >
+                <WarningIcon /> {shownMessage}
+              </span>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

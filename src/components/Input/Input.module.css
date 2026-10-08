@@ -29,28 +29,24 @@
   outline: 2px solid transparent; /* visible in Windows high-contrast mode */
 }
 
-/* WRAPPERS */
+/* WRAPPER */
 
 .inputWrapper {
   display: inline-flex;
   flex-direction: column;
-  gap: var(--venue-space-2);
-}
-
-.helpWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: var(--venue-space-1);
 }
 
 /* LABEL */
 
 .label {
+  margin-bottom: var(--venue-space-2);
   color: var(--venue-color-text);
   font-family: var(--venue-font-family-sans);
   font-size: var(--venue-font-size-sm);
   font-weight: var(--venue-font-weight-semibold);
 }
+
+/* REQUIRED */
 
 .required {
   margin-inline-start: var(--venue-space-1);
@@ -60,12 +56,12 @@
 /* ERROR */
 
 .error {
-  border-color: var(--venue-color-danger);
+  border-color: var(--venue-input-danger-border);
 }
 
 .error:focus-visible {
-  border-color: var(--venue-color-danger);
-  box-shadow: inset 0 0 0 1px var(--venue-color-danger);
+  border-color: var(--venue-input-danger-border);
+  box-shadow: inset 0 0 0 1px var(--venue-input-danger-border);
   outline: 2px solid transparent;
 }
 
@@ -73,10 +69,11 @@
   display: inline-flex;
   align-items: center;
   gap: var(--venue-space-1);
-  color: var(--venue-color-danger);
+
   font-family: var(--venue-font-family-sans);
   font-size: var(--venue-font-size-xs);
-  font-weight: var(--venue-font-weight-medium);
+  color: var(--venue-input-danger-text);
+
   opacity: 0;
   transform: translateY(-4px);
   visibility: hidden;
@@ -88,7 +85,7 @@
 
 .errorText[data-visible="true"] {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
   visibility: visible;
   transition:
     opacity var(--venue-duration-normal) var(--venue-easing-out),
@@ -99,12 +96,57 @@
 /* HELP TEXT */
 
 .description {
-  font-size: var(--venue-font-size-sm);
+  font-family: var(--venue-font-family-sans);
+  font-size: var(--venue-font-size-xs);
   color: var(--venue-color-text-muted);
+
+  transform: translateY(-4px);
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity var(--venue-duration-normal) var(--venue-easing-out),
+    transform var(--venue-duration-normal) var(--venue-easing-out),
+    visibility 0s linear var(--venue-duration-normal); /* hide only after the fade ends */
+}
+
+.description[data-visible="true"] {
+  visibility: visible;
+  transform: none;
+  opacity: 1;
+
+  transition:
+    opacity var(--venue-duration-normal) var(--venue-easing-out),
+    transform var(--venue-duration-normal) var(--venue-easing-out),
+    visibility 0s; /* show immediately */
 }
 
 /* RADIUS */
 
 .rounded {
   border-radius: var(--venue-radius-md);
+}
+
+/* MESSAGES */
+
+/* Collapses to zero height until a message is visible, then slides open */
+.messages {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--venue-duration-normal)
+    var(--venue-easing-out);
+}
+
+.messages[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.messagesInner {
+  display: grid;
+  min-height: 0; /* lets the 0fr row shrink below the content height */
+  overflow: hidden;
+}
+
+.messagesInner > * {
+  grid-area: 1/1; /* Overlap messages */
+  padding-top: var(--venue-space-1); /* spacing from the input; collapses with the row */
 }

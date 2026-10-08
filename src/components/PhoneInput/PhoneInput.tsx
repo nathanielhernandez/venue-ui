@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { TextInput, type TextInputProps } from "../Input";
+import { Input, type InputProps } from "../Input";
 
 export interface PhoneInputProps extends Omit<
-  TextInputProps,
+  InputProps,
   "type" | "value" | "defaultValue" | "onChange"
 > {
   /** Digits only, e.g. "5551234567" */
@@ -36,7 +36,7 @@ export function PhoneInput({
 
   return (
     <>
-      <TextInput
+      <Input
         {...props}
         type="tel"
         inputMode="tel"
