@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
-
 :root {
   --venue-font-family-sans: "Archivo", system-ui, -apple-system, sans-serif;
   --venue-font-family-mono: "Roboto Mono", system-ui, -apple-system, mono;

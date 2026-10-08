@@ -2,20 +2,22 @@ import type { ButtonHTMLAttributes } from "react";
 import styles from "./Button.module.css";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "danger";
-  size?: "medium" | "large";
+  variant?: "primary" | "secondary" | "tertiary" | "danger";
+  size?: "small" | "medium" | "large" | "xlarge";
+  icon?: string;
 }
 
 export function Button({
   variant = "primary",
-  // size = "medium",
+  size = "medium",
   type = "button",
   className,
   ...props
 }: ButtonProps) {
   const classes = [
     styles.root,
-    variant === "danger" && styles.danger,
+    styles[variant],
+    styles[`${size}Button`],
     className,
   ]
     .filter(Boolean)

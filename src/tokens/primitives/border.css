@@ -1,4 +1,7 @@
 :root {
   --venue-border-width-thin: 1px;
   --venue-border-width-thick: 2px;
+  --venue-focus-ring: var(--venue-border-width-thick) solid
+    var(--venue-color-primary);
+  --venue-border-transparent: var(--venue-border-width-thin) solid transparent;
 }

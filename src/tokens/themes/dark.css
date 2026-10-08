@@ -5,21 +5,29 @@
 
   --venue-color-bg: var(--venue-gray-850);
   --venue-color-component-bg: var(--venue-gray-800);
+  --venue-color-component-bg-hover: var(--venue-gray-750);
+  --venue-color-component-bg-active: var(--venue-gray-700);
   --venue-color-surface: var(--venue-gray-850);
 
   /* Borders */
 
   --venue-color-border: var(--venue-gray-500);
+  --venue-border: var(--venue-border-width-thin) solid var(--venue-color-border);
 
   /* Text Colors */
-
   --venue-color-text-muted: var(--venue-gray-200);
   --venue-color-text: var(--venue-white);
+
+  --venue-color-primary: var(--venue-blue-500);
+  --venue-color-primary-hover: var(--venue-blue-600);
+  --venue-color-primary-active: var(--venue-blue-700);
 
   /* States */
   --venue-color-focus-ring: var(--venue-color-blue);
 
-  --venue-color-danger: var(--venue-color-red);
+  --venue-color-danger: var(--venue-red-400);
+  --venue-color-danger-hover: var(--venue-red-500);
+  --venue-color-danger-active: var(--venue-red-600);
 
   --venue-color-surface-stroke: var(--venue-border-width-thin) solid
     var(--venue-gray-750);

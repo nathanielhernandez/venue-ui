@@ -3,11 +3,72 @@
   align-items: center;
   justify-content: center;
   gap: var(--venue-space-2);
-  padding: var(--venue-space-2) var(--venue-space-4);
-  border: none;
-  background: var(--venue-blue-primary);
-  color: var(--venue-gray-900);
+
+  padding: var(--venue-space-3) var(--venue-space-5);
+  border: var(--venue-border-transparent);
+  border-radius: var(--venue-radius-md);
+
+  font-weight: var(--venue-font-weight-semibold);
+  font-size: var(--venue-font-size-sm);
+  font-family: var(--venue-font-family-sans);
+  color: var(--venue-color-text);
+
+  background: var(--venue-color-primary);
+
+  cursor: pointer;
+  transition: background-color var(--venue-duration-normal)
+    var(--venue-easing-out);
 }
+
+.root:hover:not(:disabled) {
+  background-color: var(--venue-color-primary-hover);
+}
+
+.root:active:not(:disabled) {
+  background-color: var(--venue-color-primary-active);
+}
+
+.root:focus-visible {
+  outline: var(--venue-focus-ring);
+  outline-offset: var(--venue-border-width-thick);
+}
+
+.root:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* SECONDARY BUTTON STYLES */
+
+.secondary {
+  background: var(--venue-color-component-bg);
+  border: var(--venue-border);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--venue-color-component-bg-hover);
+}
+
+.secondary:active:not(:disabled) {
+  background: var(--venue-color-component-bg-active);
+}
+
+/* TERTIARY BUTTON STYLES */
+
+.tertiary {
+  background: none;
+  color: var(--venue-color-primary);
+}
+
+.tertiary:hover:not(:disabled) {
+  background: var(--venue-gray-800);
+}
+
+.tertiary:active:not(:disabled) {
+  background: var(--venue-gray-750);
+}
+
+/* DANGER BUTTON STYLES */
 
 .danger {
   background: var(--venue-color-danger);
@@ -16,3 +77,27 @@
 .danger:hover:not(:disabled) {
   background: var(--venue-color-danger-hover);
 }
+
+.danger:active:not(:disabled) {
+  background: var(--venue-color-danger-active);
+}
+
+/* SIZES */
+
+.smallButton {
+  padding: var(--venue-space-2) var(--venue-space-4);
+}
+
+.mediumButton {
+  padding: var(--venue-space-3) var(--venue-space-5);
+}
+
+.largeButton {
+  padding: var(--venue-space-4) var(--venue-space-6);
+}
+
+.xlargeButton {
+  padding: var(--venue-space-5) var(--venue-space-7);
+}
+
+/* UNIVERSAL STYLES */

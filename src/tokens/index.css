@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 @import "./primitives/colors.css";
 @import "./primitives/spacing.css";
 @import "./primitives/radius.css";
@@ -8,7 +9,3 @@
 @import "./primitives/motion.css";
 @import "./themes/light.css";
 @import "./themes/dark.css";
-
-:root {
-  font-family: var(--venue-font-family-sans);
-}
