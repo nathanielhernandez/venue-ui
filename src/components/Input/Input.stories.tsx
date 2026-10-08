@@ -18,14 +18,11 @@ const meta = {
     size: "large",
   },
   argTypes: {
-    type: { control: "select", options: ["text", "email", "number"] },
+    type: { control: "select", options: ["text", "email"] },
     size: {
       control: "select",
       options: ["small", "medium", "large", "xlarge"],
     },
-    min: { control: "number", if: { arg: "type", eq: "number" } },
-    max: { control: "number", if: { arg: "type", eq: "number" } },
-    step: { control: "number", if: { arg: "type", eq: "number" } },
     onChange: { action: "changed" },
   },
 } satisfies Meta<typeof Input>;

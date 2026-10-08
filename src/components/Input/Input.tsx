@@ -2,6 +2,8 @@ import { useId, useState, type ComponentPropsWithRef } from "react";
 import styles from "./Input.module.css";
 import { WarningIcon } from "../../icons/WarningIcon";
 
+type InputTypes = "text" | "email";
+
 type BaseInputProps = Omit<
   ComponentPropsWithRef<"input">,
   "type" | "min" | "max" | "step" | "size"
@@ -15,17 +17,10 @@ type BaseInputProps = Omit<
 };
 
 type TextInputProps = BaseInputProps & {
-  type?: "text" | "email";
+  type?: InputTypes;
 };
 
-type NumberInputProps = BaseInputProps & {
-  type: "number";
-  min?: number;
-  max?: number;
-  step?: number;
-};
-
-export type InputProps = TextInputProps | NumberInputProps;
+export type InputProps = TextInputProps;
 
 export function Input({
   label,
