@@ -10,8 +10,8 @@ const meta = {
     children: "Button",
     variant: "primary",
     size: "large",
+    icon: "none",
     rounded: true,
-    icon: undefined,
     disabled: false,
     onClick: fn(),
   },
@@ -69,4 +69,24 @@ export const Disabled: Story = {
     await userEvent.click(button);
     await expect(args.onClick).not.toHaveBeenCalled();
   },
+};
+
+const variants = ["primary", "secondary", "tertiary"] as const;
+
+export const Danger: Story = {
+  args: { tone: "danger", children: "Delete" },
+  argTypes: { variant: { control: false } },
+  render: (args) => (
+    <div
+      style={{
+        display: "flex",
+        gap: "var(--venue-space-5)",
+        alignItems: "center",
+      }}
+    >
+      {variants.map((variant) => (
+        <Button key={variant} {...args} variant={variant} />
+      ))}
+    </div>
+  ),
 };

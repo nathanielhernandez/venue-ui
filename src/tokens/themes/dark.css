@@ -31,8 +31,8 @@
 
   /* Primary */
   --venue-button-primary-bg: var(--venue-blue-600);
-  --venue-button-primary-bg-hover: var(--venue-blue-600);
-  --venue-button-primary-bg-active: var(--venue-blue-700);
+  --venue-button-primary-bg-hover: var(--venue-blue-700);
+  --venue-button-primary-bg-active: var(--venue-blue-800);
   --venue-button-primary-border: var(--venue-blue-500);
 
   /* Secondary */
@@ -49,7 +49,7 @@
   --venue-button-tertiary-border: transparent;
 
   /* Danger */
-  --venue-button-danger-text: var(--venue-color-text);
+  --venue-button-danger-text: var(--venue-red-300);
   --venue-button-danger-bg: var(--venue-color-danger);
   --venue-button-danger-bg-hover: var(--venue-color-danger-hover);
   --venue-button-danger-bg-active: var(--venue-color-danger-active);

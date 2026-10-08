@@ -1,6 +1,5 @@
 {
   "name": "@nathanielhernandez/venue-ui",
-  "private": true,
   "version": "0.1.0",
   "type": "module",
   "scripts": {

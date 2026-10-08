@@ -6,6 +6,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "small" | "medium" | "large" | "xlarge";
   icon?: ReactNode;
   rounded?: boolean;
+  tone?: "neutral" | "danger";
 }
 
 export function Button({
@@ -13,7 +14,8 @@ export function Button({
   size = "large",
   type = "button",
   icon,
-  rounded,
+  rounded = true,
+  tone = "neutral",
   children,
   className,
   ...props
@@ -22,6 +24,7 @@ export function Button({
     styles.root,
     styles[variant],
     styles[size],
+    styles[tone],
     rounded && styles.rounded,
     className,
   ]
