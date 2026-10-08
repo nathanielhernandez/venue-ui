@@ -17,6 +17,7 @@
   font-weight: var(--venue-font-weight-semibold);
   font-size: var(--venue-font-size-sm);
   font-family: var(--venue-font-family-sans);
+  line-height: 1.2;
   color: var(--venue-color-text);
 
   background: var(--_fill);
@@ -100,7 +101,7 @@
 /* SIZES */
 
 .small {
-  --_paddding-y: var(--venue-space-2);
+  --_padding-y: var(--venue-space-2);
   --_padding-x: var(--venue-space-4);
   font-size: var(--venue-font-size-xs);
 }
@@ -113,6 +114,7 @@
 .large {
   --_padding-y: var(--venue-space-4);
   --_padding-x: var(--venue-space-6);
+  font-size: var(--venue-font-size-md);
 }
 
 .xlarge {

@@ -1,10 +1,7 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import type { ComponentPropsWithRef, ReactNode } from "react";
 import styles from "./Button.module.css";
 
-type BaseButtonProps = Omit<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  "children"
-> & {
+type BaseButtonProps = Omit<ComponentPropsWithRef<"button">, "children"> & {
   variant?: "primary" | "secondary" | "tertiary";
   size?: "small" | "medium" | "large" | "xlarge";
   tone?: "neutral" | "danger";
