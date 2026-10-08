@@ -1,14 +1,14 @@
-import { useId, useState, type InputHTMLAttributes } from "react";
+import { useId, useState, type ComponentPropsWithRef } from "react";
 import styles from "./TextInput.module.css";
 import { IoWarningSharp } from "react-icons/io5";
 
-export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
+export type BaseTextInputProps = ComponentPropsWithRef<"input"> & {
   /** Label for text input, e.g. "Name" */
   label: string;
   error?: boolean;
   errorMessage?: string;
   description?: string;
-}
+};
 
 export function TextInput({
   label,
@@ -19,7 +19,7 @@ export function TextInput({
   errorMessage,
   description,
   ...props
-}: TextInputProps) {
+}: BaseTextInputProps) {
   const generatedId = useId();
   const inputId = id ?? generatedId;
   const errorId = `${inputId}-error`;
