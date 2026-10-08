@@ -66,10 +66,13 @@ export const Disabled: Story = {
   args: { disabled: true },
   argTypes: { variant: { control: false } },
   play: async ({ args, canvas, userEvent }) => {
-    const button = canvas.getByRole("button", { name: "Button" });
-    await expect(button).toBeDisabled();
+    const buttons = canvas.getAllByRole("button", { name: "Button" });
 
-    await userEvent.click(button);
+    for (const button of buttons) {
+      await expect(button).toBeDisabled();
+      await userEvent.click(button);
+    }
+
     await expect(args.onClick).not.toHaveBeenCalled();
   },
   render: (args) => (
