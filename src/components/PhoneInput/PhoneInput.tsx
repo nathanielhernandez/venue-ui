@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { TextInput, type TextInputProps } from "../TextInput";
+import { TextInput, type TextInputProps } from "../Input";
 
-export interface PhoneInputProps
-  extends Omit<TextInputProps, "type" | "value" | "defaultValue" | "onChange"> {
+export interface PhoneInputProps extends Omit<
+  TextInputProps,
+  "type" | "value" | "defaultValue" | "onChange"
+> {
   /** Digits only, e.g. "5551234567" */
   value?: string;
   /** Digits only, e.g. "5551234567" */
