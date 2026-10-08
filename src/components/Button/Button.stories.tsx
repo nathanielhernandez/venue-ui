@@ -3,6 +3,8 @@ import { expect, fn } from "storybook/test";
 import { Button } from "./Button";
 import { FaRocket } from "react-icons/fa";
 
+const variants = ["primary", "secondary", "tertiary"] as const;
+
 const meta = {
   title: "Components/Button",
   component: Button,
@@ -10,15 +12,24 @@ const meta = {
     children: "Button",
     variant: "primary",
     size: "large",
+    tone: "neutral",
     icon: "none",
     rounded: true,
     disabled: false,
     onClick: fn(),
   },
   argTypes: {
+    variant: {
+      control: "select",
+      options: ["primary", "secondary", "tertiary"],
+    },
     size: {
       control: "select",
       options: ["small", "medium", "large", "xlarge"],
+    },
+    tone: {
+      control: "radio",
+      options: ["neutral", "danger"],
     },
     icon: {
       options: ["none", "rocket"],
@@ -27,6 +38,12 @@ const meta = {
         rocket: <FaRocket />,
       },
       control: "select",
+    },
+    rounded: {
+      control: "boolean",
+    },
+    type: {
+      control: false,
     },
   },
 } satisfies Meta<typeof Button>;
@@ -62,16 +79,31 @@ export const Tertiary: Story = {
 
 export const Disabled: Story = {
   args: { disabled: true },
+  argTypes: { variant: { control: false } },
   play: async ({ args, canvas, userEvent }) => {
-    const button = canvas.getByRole("button", { name: "Button" });
-    await expect(button).toBeDisabled();
+    const buttons = canvas.getAllByRole("button", { name: "Button" });
 
-    await userEvent.click(button);
+    for (const button of buttons) {
+      await expect(button).toBeDisabled();
+      await userEvent.click(button);
+    }
+
     await expect(args.onClick).not.toHaveBeenCalled();
   },
+  render: (args) => (
+    <div
+      style={{
+        display: "flex",
+        gap: "var(--venue-space-5)",
+        alignItems: "center",
+      }}
+    >
+      {variants.map((variant) => (
+        <Button key={variant} {...args} variant={variant} />
+      ))}
+    </div>
+  ),
 };
-
-const variants = ["primary", "secondary", "tertiary"] as const;
 
 export const Danger: Story = {
   args: { tone: "danger", children: "Delete" },
@@ -89,4 +121,14 @@ export const Danger: Story = {
       ))}
     </div>
   ),
+};
+
+export const IconButton: Story = {
+  args: { icon: <FaRocket /> },
+  argTypes: { icon: { control: false } },
+};
+
+export const IconOnly: Story = {
+  args: { icon: <FaRocket />, children: undefined, "aria-label": "Launch" },
+  argTypes: { children: { control: false } },
 };

@@ -1,13 +1,25 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import type { ComponentPropsWithRef, ReactNode } from "react";
 import styles from "./Button.module.css";
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+type BaseButtonProps = Omit<ComponentPropsWithRef<"button">, "children"> & {
   variant?: "primary" | "secondary" | "tertiary";
   size?: "small" | "medium" | "large" | "xlarge";
-  icon?: ReactNode;
-  rounded?: boolean;
   tone?: "neutral" | "danger";
-}
+  rounded?: boolean;
+};
+
+type TextButtonProps = BaseButtonProps & {
+  children: ReactNode;
+  icon?: ReactNode;
+};
+
+type IconButtonProps = BaseButtonProps & {
+  children?: never;
+  icon: ReactNode;
+  "aria-label": string;
+};
+
+export type ButtonProps = TextButtonProps | IconButtonProps;
 
 export function Button({
   variant = "primary",
@@ -26,6 +38,7 @@ export function Button({
     styles[size],
     styles[tone],
     rounded && styles.rounded,
+    !children && styles.iconOnly,
     className,
   ]
     .filter(Boolean)
