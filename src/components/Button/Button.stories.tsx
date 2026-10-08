@@ -3,6 +3,8 @@ import { expect, fn } from "storybook/test";
 import { Button } from "./Button";
 import { FaRocket } from "react-icons/fa";
 
+const variants = ["primary", "secondary", "tertiary"] as const;
+
 const meta = {
   title: "Components/Button",
   component: Button,
@@ -62,6 +64,7 @@ export const Tertiary: Story = {
 
 export const Disabled: Story = {
   args: { disabled: true },
+  argTypes: { variant: { control: false } },
   play: async ({ args, canvas, userEvent }) => {
     const button = canvas.getByRole("button", { name: "Button" });
     await expect(button).toBeDisabled();
@@ -69,9 +72,20 @@ export const Disabled: Story = {
     await userEvent.click(button);
     await expect(args.onClick).not.toHaveBeenCalled();
   },
+  render: (args) => (
+    <div
+      style={{
+        display: "flex",
+        gap: "var(--venue-space-5)",
+        alignItems: "center",
+      }}
+    >
+      {variants.map((variant) => (
+        <Button key={variant} {...args} variant={variant} />
+      ))}
+    </div>
+  ),
 };
-
-const variants = ["primary", "secondary", "tertiary"] as const;
 
 export const Danger: Story = {
   args: { tone: "danger", children: "Delete" },
