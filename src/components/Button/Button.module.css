@@ -3,13 +3,15 @@
   --_fill-hover: var(--venue-button-primary-bg-hover);
   --_fill-active: var(--venue-button-primary-bg-active);
   --_border: var(--venue-button-primary-border);
+  --_padding-y: var(--venue-space-3);
+  --_padding-x: var(--venue-space-5);
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--venue-space-3);
 
-  padding: var(--venue-space-3) var(--venue-space-5);
+  padding: var(--_padding-y) var(--_padding-x);
   border: var(--venue-border-width-thin) solid var(--_border);
 
   font-weight: var(--venue-font-weight-semibold);
@@ -98,20 +100,24 @@
 /* SIZES */
 
 .small {
-  padding: var(--venue-space-2) var(--venue-space-4);
+  --_paddding-y: var(--venue-space-2);
+  --_padding-x: var(--venue-space-4);
   font-size: var(--venue-font-size-xs);
 }
 
 .medium {
-  padding: var(--venue-space-3) var(--venue-space-5);
+  --_padding-y: var(--venue-space-3);
+  --_padding-x: var(--venue-space-5);
 }
 
 .large {
-  padding: var(--venue-space-4) var(--venue-space-6);
+  --_padding-y: var(--venue-space-4);
+  --_padding-x: var(--venue-space-6);
 }
 
 .xlarge {
-  padding: var(--venue-space-5) var(--venue-space-7);
+  --_padding-y: var(--venue-space-5);
+  --_padding-x: var(--venue-space-7);
   font-size: var(--venue-font-size-lg);
 }
 
@@ -122,6 +128,11 @@
 }
 
 /* ICON */
+
+.iconOnly {
+  padding: var(--_padding-y);
+  aspect-ratio: 1;
+}
 
 .icon {
   display: inline-flex;
