@@ -12,6 +12,7 @@ const meta = {
     children: "Button",
     variant: "primary",
     size: "large",
+    tone: "neutral",
     icon: "none",
     rounded: true,
     disabled: false,
@@ -21,6 +22,10 @@ const meta = {
     size: {
       control: "select",
       options: ["small", "medium", "large", "xlarge"],
+    },
+    tone: {
+      control: "radio",
+      options: ["neutral", "danger"],
     },
     icon: {
       options: ["none", "rocket"],
@@ -106,4 +111,14 @@ export const Danger: Story = {
       ))}
     </div>
   ),
+};
+
+export const IconButton: Story = {
+  args: { icon: <FaRocket /> },
+  argTypes: { icon: { control: false } },
+};
+
+export const IconOnly: Story = {
+  args: { icon: <FaRocket />, children: undefined, "aria-label": "Launch" },
+  argTypes: { children: { control: false } },
 };
