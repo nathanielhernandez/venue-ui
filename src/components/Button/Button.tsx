@@ -1,25 +1,44 @@
-import type { ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 import styles from "./Button.module.css";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "danger";
-  size?: "medium" | "large";
+  variant?: "primary" | "secondary" | "tertiary";
+  size?: "small" | "medium" | "large" | "xlarge";
+  icon?: ReactNode;
+  rounded?: boolean;
+  tone?: "neutral" | "danger";
 }
 
 export function Button({
   variant = "primary",
-  // size = "medium",
+  size = "large",
   type = "button",
+  icon,
+  rounded = true,
+  tone = "neutral",
+  children,
   className,
   ...props
 }: ButtonProps) {
   const classes = [
     styles.root,
-    variant === "danger" && styles.danger,
+    styles[variant],
+    styles[size],
+    styles[tone],
+    rounded && styles.rounded,
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
-  return <button type={type} className={classes} {...props} />;
+  return (
+    <button type={type} className={classes} {...props}>
+      {icon && (
+        <span className={styles.icon} aria-hidden="true">
+          {icon}
+        </span>
+      )}
+      {children}
+    </button>
+  );
 }

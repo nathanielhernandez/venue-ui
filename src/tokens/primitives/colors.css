@@ -1,14 +1,26 @@
 :root {
-  --venue-color-blue: #00c2ff;
-
-  --venue-color-red: #ff5335;
+  --venue-blue-300: #00c2ff;
+  --venue-blue-400: #00a4ff;
+  --venue-blue-500: #0085ff;
+  --venue-blue-600: #006ad1;
+  --venue-blue-700: #0050a0;
+  --venue-blue-800: #003670;
 
   --venue-gray-900: #08090a;
   --venue-gray-850: #0e1114;
   --venue-gray-800: #181f22;
+  --venue-gray-700: #353e47;
   --venue-gray-750: #252b31;
   --venue-gray-500: #637281;
   --venue-gray-200: #a0a0a0;
+
+  /* REDS */
+
+  --venue-red-300: #ff5335;
+  --venue-red-400: #d93a1e;
+  --venue-red-500: #ac220b;
+  --venue-red-600: #871a08;
+  --venue-red-700: #631306;
 
   --venue-white: #fff;
 }

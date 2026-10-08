@@ -3,24 +3,55 @@
 
   /* Backgrounds */
 
-  --venue-color-bg: var(--venue-gray-850);
-  --venue-color-component-bg: var(--venue-gray-800);
+  --venue-color-bg: var(--venue-gray-900);
   --venue-color-surface: var(--venue-gray-850);
+  --venue-color-component-bg: var(--venue-gray-800);
+  --venue-color-component-bg-hover: var(--venue-gray-750);
+  --venue-color-component-bg-active: var(--venue-gray-700);
 
   /* Borders */
-
   --venue-color-border: var(--venue-gray-500);
+  --venue-color-surface-border: var(--venue-gray-750);
 
   /* Text Colors */
-
   --venue-color-text-muted: var(--venue-gray-200);
   --venue-color-text: var(--venue-white);
 
+  /* Brand */
+  --venue-color-accent: var(--venue-blue-500);
+
   /* States */
-  --venue-color-focus-ring: var(--venue-color-blue);
+  --venue-color-focus-ring: var(--venue-color-accent);
 
-  --venue-color-danger: var(--venue-color-red);
+  --venue-color-danger: var(--venue-red-400);
+  --venue-color-danger-hover: var(--venue-red-500);
+  --venue-color-danger-active: var(--venue-red-600);
 
-  --venue-color-surface-stroke: var(--venue-border-width-thin) solid
-    var(--venue-gray-750);
+  /* ----- BUTTONS ----- */
+
+  /* Primary */
+  --venue-button-primary-bg: var(--venue-blue-600);
+  --venue-button-primary-bg-hover: var(--venue-blue-700);
+  --venue-button-primary-bg-active: var(--venue-blue-800);
+  --venue-button-primary-border: var(--venue-blue-500);
+
+  /* Secondary */
+  --venue-button-secondary-bg: var(--venue-color-component-bg);
+  --venue-button-secondary-bg-hover: var(--venue-color-component-bg-hover);
+  --venue-button-secondary-bg-active: var(--venue-color-component-bg-active);
+  --venue-button-secondary-border: var(--venue-gray-500);
+
+  /* Tertiary */
+  --venue-button-tertiary-text: var(--venue-blue-300);
+  --venue-button-tertiary-bg: transparent;
+  --venue-button-tertiary-bg-hover: var(--venue-gray-800);
+  --venue-button-tertiary-bg-active: var(--venue-gray-750);
+  --venue-button-tertiary-border: transparent;
+
+  /* Danger */
+  --venue-button-danger-text: var(--venue-red-300);
+  --venue-button-danger-bg: var(--venue-color-danger);
+  --venue-button-danger-bg-hover: var(--venue-color-danger-hover);
+  --venue-button-danger-bg-active: var(--venue-color-danger-active);
+  --venue-button-danger-border: var(--venue-red-300);
 }

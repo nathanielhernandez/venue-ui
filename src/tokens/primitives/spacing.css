@@ -1,8 +1,9 @@
 :root {
   --venue-space-1: 0.25rem;
-  --venue-space-2: 0.5rem;
-  --venue-space-3: 0.75rem;
-  --venue-space-4: 1rem;
+  --venue-space-2: 0.375rem;
+  --venue-space-3: 0.5rem;
+  --venue-space-4: 0.75rem;
+  --venue-space-5: 1rem;
   --venue-space-6: 1.5rem;
-  --venue-space-8: 2rem;
+  --venue-space-7: 2rem;
 }
