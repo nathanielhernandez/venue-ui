@@ -11,7 +11,6 @@ export interface PhoneInputProps extends Omit<
   defaultValue?: string;
   /** Called with digits only, never the formatted text */
   onChange?: (digits: string) => void;
-  showIcon?: boolean;
 }
 
 const format = (digits: string) => {
