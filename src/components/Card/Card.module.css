@@ -1,7 +1,39 @@
 .root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--venue-space-5);
   background-color: var(--venue-color-surface);
   border: var(--venue-border-width-thin) solid var(--venue-color-surface-border);
-  padding: var(--venue-space-4);
   color: var(--venue-color-text);
   border-radius: var(--venue-radius-md);
+  font-family: var(--venue-font-family-sans);
+}
+
+/* HEADER */
+
+h2.header {
+  font-size: var(--venue-header-size-md);
+  margin: 0 0 var(--venue-space-5) 0;
+}
+
+.endSlot {
+  margin-top: var(--venue-space-5);
+}
+
+/* PADDING */
+
+.small {
+  padding: var(--venue-space-3);
+}
+
+.medium {
+  padding: var(--venue-space-5);
+}
+
+.large {
+  padding: var(--venue-space-6);
+}
+
+.xlarge {
+  padding: var(--venue-space-7);
 }

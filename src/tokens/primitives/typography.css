@@ -11,4 +11,8 @@
   --venue-font-weight-medium: 500;
   --venue-font-weight-semibold: 600;
   --venue-font-weight-bold: 700;
+
+  --venue-header-size-md: 1.5rem;
+
+  --venue-line-height-1: 1.2;
 }

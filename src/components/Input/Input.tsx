@@ -30,6 +30,7 @@ export type InputProps = TextInputProps;
 
 export function Input({
   label,
+  type = "text",
   hideLabel = false,
   id,
   className,
@@ -100,6 +101,7 @@ export function Input({
         <input
           {...props}
           id={inputId}
+          type={type}
           className={classes}
           required={required}
           aria-invalid={error || undefined}
