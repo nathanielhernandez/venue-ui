@@ -1,8 +1,4 @@
 .root {
-  --_fill: var(--venue-input-bg);
-  --_padding-y: var(--venue-space-3);
-  --_padding-x: var(--venue-space-4);
-
   padding: var(--_padding-y) var(--_padding-x);
   border: var(--venue-border-width-thin) solid var(--venue-color-border);
 
@@ -31,9 +27,41 @@
 
 /* WRAPPER */
 
-.inputWrapper {
+.componentWrapper {
   display: inline-flex;
   flex-direction: column;
+}
+
+.inputWrapper {
+  --_fill: var(--venue-input-bg);
+  --_padding-y: var(--venue-space-3);
+  --_padding-x: var(--venue-space-4);
+
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: var(--_padding-x);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  color: var(--venue-input-icon-color);
+}
+
+.icon.right {
+  inset-inline-start: auto;
+  inset-inline-end: var(--_padding-x);
+}
+
+.withIcon {
+  padding-inline-start: calc(var(--_padding-x) * 2 + 1em);
+}
+
+.withIcon.right {
+  padding-inline-start: auto;
+  padding-inline-end: calc(var(--_padding-x) * 2 + 1em);
 }
 
 /* LABEL */
@@ -157,7 +185,7 @@
 
 .small {
   --_padding-y: var(--venue-space-2);
-  --_paddying-x: var(--venue-space-3);
+  --_padding-x: var(--venue-space-3);
 
   font-size: var(--venue-font-size-xs);
 }

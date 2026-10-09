@@ -1,4 +1,9 @@
-import { useId, useState, type ComponentPropsWithRef } from "react";
+import {
+  useId,
+  useState,
+  type ComponentPropsWithRef,
+  type ReactNode,
+} from "react";
 import styles from "./Input.module.css";
 import { WarningIcon } from "../../icons/WarningIcon";
 
@@ -11,6 +16,8 @@ type BaseInputProps = Omit<ComponentPropsWithRef<"input">, "type" | "size"> & {
   description?: string;
   rounded?: boolean;
   size?: "small" | "medium" | "large" | "xlarge";
+  icon?: ReactNode;
+  iconPosition?: "left" | "right";
 };
 
 type TextInputProps = BaseInputProps & {
@@ -29,6 +36,8 @@ export function Input({
   description,
   rounded = true,
   size = "large",
+  icon,
+  iconPosition = "left",
   ...props
 }: InputProps) {
   const generatedId = useId();
@@ -43,7 +52,8 @@ export function Input({
     styles.root,
     error && styles.error,
     rounded && styles.rounded,
-    size && styles[size],
+    icon && iconPosition === "left" && styles.withIcon,
+    icon && iconPosition === "right" && styles.right,
     className,
   ]
     .filter(Boolean)
@@ -61,7 +71,7 @@ export function Input({
       .join(" ") || undefined;
 
   return (
-    <div className={styles.inputWrapper}>
+    <div className={styles.componentWrapper}>
       <label htmlFor={inputId} className={styles.label}>
         {label}
         {required && (
@@ -70,14 +80,27 @@ export function Input({
           </span>
         )}
       </label>
-      <input
-        {...props}
-        id={inputId}
-        className={classes}
-        required={required}
-        aria-invalid={error || undefined}
-        aria-describedby={describedBy}
-      />
+      <div className={[styles.inputWrapper, styles[size]].join(" ")}>
+        {icon && (
+          <span
+            className={[
+              styles.icon,
+              iconPosition === "right" && styles.right,
+            ].join(" ")}
+            aria-hidden="true"
+          >
+            {icon}
+          </span>
+        )}
+        <input
+          {...props}
+          id={inputId}
+          className={classes}
+          required={required}
+          aria-invalid={error || undefined}
+          aria-describedby={describedBy}
+        />
+      </div>
       {(description || shownMessage) && (
         <div
           className={styles.messages}

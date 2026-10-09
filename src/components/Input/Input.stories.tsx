@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { FaRocket } from "react-icons/fa";
 import { expect } from "storybook/test";
 import { Input } from "./Input";
 
@@ -17,12 +18,21 @@ const meta = {
     description: "",
     rounded: true,
     size: "large",
+    iconPosition: "left",
   },
   argTypes: {
     type: { control: "select", options: ["text", "email", "tel", "url"] },
     size: {
       control: "select",
       options: ["small", "medium", "large", "xlarge"],
+    },
+    icon: {
+      options: ["none", "rocket"],
+      mapping: {
+        none: undefined,
+        rocket: <FaRocket />,
+      },
+      control: "select",
     },
     onChange: { action: "changed" },
   },
@@ -41,4 +51,8 @@ export const Default: Story = {
     await expect(input).toHaveValue("hello");
     await expect(args.onChange).toHaveBeenCalledTimes(5);
   },
+};
+
+export const WithIcon: Story = {
+  args: { icon: <FaRocket />, iconPosition: "left" },
 };

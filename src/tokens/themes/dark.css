@@ -59,6 +59,7 @@
 
   /* Default */
   --venue-input-bg: none;
+  --venue-input-icon-color: var(--venue-gray-500);
 
   /* Required */
   --venue-input-required: var(--venue-red-300);
