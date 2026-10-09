@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { FaRocket } from "react-icons/fa";
 import { Input } from "./Input";
+import { IconRocket } from "@tabler/icons-react";
 
 const meta = {
   component: Input,
@@ -34,7 +34,7 @@ const meta = {
       options: ["none", "rocket"],
       mapping: {
         none: undefined,
-        rocket: <FaRocket />,
+        rocket: <IconRocket />,
       },
       control: "select",
     },
@@ -54,7 +54,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 export const WithIcon: Story = {
-  args: { icon: <FaRocket /> },
+  args: { icon: <IconRocket /> },
   render: (args) => (
     <div
       style={{

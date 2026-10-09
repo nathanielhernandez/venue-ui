@@ -5,7 +5,7 @@ import {
   type ReactNode,
 } from "react";
 import styles from "./Input.module.css";
-import { WarningIcon } from "../../icons/WarningIcon";
+import { IconAlertTriangleFilled } from "@tabler/icons-react";
 
 type InputTypes = "text" | "email" | "tel" | "url" | "password";
 
@@ -129,7 +129,7 @@ export function Input({
                 className={styles.errorText}
                 data-visible={showError ? "true" : "false"}
               >
-                <WarningIcon /> {shownMessage}
+                <IconAlertTriangleFilled aria-hidden="true" /> {shownMessage}
               </span>
             )}
           </div>

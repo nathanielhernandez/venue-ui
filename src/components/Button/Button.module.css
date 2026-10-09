@@ -156,3 +156,8 @@
   display: inline-flex;
   align-items: center;
 }
+
+.icon svg {
+  width: 1em;
+  height: 1em;
+}

@@ -59,6 +59,11 @@
   color: var(--venue-input-icon-color);
 }
 
+.icon svg {
+  width: 1em;
+  height: 1em;
+}
+
 /* SLOTS */
 
 .endSlot {
@@ -111,6 +116,12 @@
     opacity var(--venue-duration-normal) var(--venue-easing-out),
     transform var(--venue-duration-normal) var(--venue-easing-out),
     visibility 0s linear var(--venue-duration-normal); /* hide only after the fade ends */
+}
+
+.errorText svg {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
 }
 
 .errorText[data-visible="true"] {

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Input, type InputProps } from "../Input";
-import { EyeIcon } from "../../icons/EyeIcon";
 import { Button } from "../Button";
+
+import { IconEye, IconEyeOff } from "@tabler/icons-react";
 
 export interface PasswordInputProps extends Omit<InputProps, "type"> {
   showPasswordObscureOption?: boolean;
@@ -25,11 +26,12 @@ export function PasswordInput({
         endSlot={
           showPasswordObscureOption && (
             <Button
+              disabled={props.disabled}
               variant="ghost"
               size={size}
               onClick={() => setShowHidePassword((prev) => !prev)}
               aria-label={showHidePassword ? "Hide password" : "Show password"}
-              icon={<EyeIcon state={showHidePassword ? "open" : "closed"} />}
+              icon={showHidePassword ? <IconEyeOff /> : <IconEye />}
             />
           )
         }
