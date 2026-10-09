@@ -89,10 +89,9 @@ export function Input({
       <div className={[styles.inputWrapper, styles[size]].join(" ")}>
         {icon && (
           <span
-            className={[
-              styles.icon,
-              iconPosition === "right" && styles.right,
-            ].join(" ")}
+            className={[styles.icon, iconPosition === "right" && styles.right]
+              .filter(Boolean)
+              .join(" ")}
             aria-hidden="true"
           >
             {icon}
