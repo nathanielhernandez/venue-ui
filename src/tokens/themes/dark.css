@@ -54,4 +54,20 @@
   --venue-button-danger-bg-hover: var(--venue-color-danger-hover);
   --venue-button-danger-bg-active: var(--venue-color-danger-active);
   --venue-button-danger-border: var(--venue-red-300);
+
+  /* ----- TEXT INPUTS ----- */
+
+  /* Default */
+  --venue-input-bg: none;
+  --venue-input-icon-color: var(--venue-gray-500);
+
+  /* Required */
+  --venue-input-required: var(--venue-red-300);
+
+  /* Disabled */
+  --venue-input-bg-disabled: var(--venue-gray-750);
+
+  /* Error */
+  --venue-input-danger-text: var(--venue-red-300);
+  --venue-input-danger-border: var(--venue-red-300);
 }

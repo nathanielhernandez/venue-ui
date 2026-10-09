@@ -1,15 +1,16 @@
 import { useState } from "react";
-import { TextInput, type TextInputProps } from "../TextInput";
+import { Input, type InputProps } from "../Input";
 
-export interface PhoneInputProps
-  extends Omit<TextInputProps, "type" | "value" | "defaultValue" | "onChange"> {
+export interface PhoneInputProps extends Omit<
+  InputProps,
+  "type" | "value" | "defaultValue" | "onChange"
+> {
   /** Digits only, e.g. "5551234567" */
   value?: string;
   /** Digits only, e.g. "5551234567" */
   defaultValue?: string;
   /** Called with digits only, never the formatted text */
   onChange?: (digits: string) => void;
-  showIcon?: boolean;
 }
 
 const format = (digits: string) => {
@@ -23,6 +24,7 @@ const format = (digits: string) => {
 const parse = (text: string) => text.replace(/\D/g, "").slice(0, 10);
 
 export function PhoneInput({
+  placeholder = "(123) 123-1234",
   value,
   defaultValue = "",
   onChange,
@@ -34,8 +36,9 @@ export function PhoneInput({
 
   return (
     <>
-      <TextInput
+      <Input
         {...props}
+        placeholder={placeholder}
         type="tel"
         inputMode="tel"
         autoComplete="tel"
