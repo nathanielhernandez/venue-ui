@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, fn } from "storybook/test";
 import { Button } from "./Button";
-import { FaRocket } from "react-icons/fa";
+import { IconRocket } from "@tabler/icons-react";
 
 const variants = ["primary", "secondary", "tertiary"] as const;
 
@@ -35,7 +35,7 @@ const meta = {
       options: ["none", "rocket"],
       mapping: {
         none: undefined,
-        rocket: <FaRocket />,
+        rocket: <IconRocket />,
       },
       control: "select",
     },
@@ -124,11 +124,11 @@ export const Danger: Story = {
 };
 
 export const IconButton: Story = {
-  args: { icon: <FaRocket /> },
+  args: { icon: <IconRocket />, children: "Launch" },
   argTypes: { icon: { control: false } },
 };
 
 export const IconOnly: Story = {
-  args: { icon: <FaRocket />, children: undefined, "aria-label": "Launch" },
+  args: { icon: <IconRocket />, children: undefined, "aria-label": "Launch" },
   argTypes: { children: { control: false } },
 };

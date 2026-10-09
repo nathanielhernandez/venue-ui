@@ -2,7 +2,7 @@ import type { ComponentPropsWithRef, ReactNode } from "react";
 import styles from "./Button.module.css";
 
 type BaseButtonProps = Omit<ComponentPropsWithRef<"button">, "children"> & {
-  variant?: "primary" | "secondary" | "tertiary";
+  variant?: "primary" | "secondary" | "tertiary" | "ghost";
   size?: "small" | "medium" | "large" | "xlarge";
   tone?: "neutral" | "danger";
   rounded?: boolean;

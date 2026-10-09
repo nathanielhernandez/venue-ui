@@ -5,9 +5,9 @@ import {
   type ReactNode,
 } from "react";
 import styles from "./Input.module.css";
-import { WarningIcon } from "../../icons/WarningIcon";
+import { IconAlertTriangleFilled } from "@tabler/icons-react";
 
-type InputTypes = "text" | "email" | "tel" | "url";
+type InputTypes = "text" | "email" | "tel" | "url" | "password";
 
 type BaseInputProps = Omit<ComponentPropsWithRef<"input">, "type" | "size"> & {
   label: string;
@@ -19,6 +19,7 @@ type BaseInputProps = Omit<ComponentPropsWithRef<"input">, "type" | "size"> & {
   size?: "small" | "medium" | "large" | "xlarge";
   icon?: ReactNode;
   iconPosition?: "left" | "right";
+  endSlot?: ReactNode;
 };
 
 type TextInputProps = BaseInputProps & {
@@ -36,6 +37,7 @@ export function Input({
   error,
   errorMessage,
   description,
+  endSlot,
   rounded = true,
   size = "large",
   icon,
@@ -50,16 +52,23 @@ export function Input({
   const [shownMessage, setShownMessage] = useState(errorMessage);
   if (error && errorMessage !== shownMessage) setShownMessage(errorMessage);
 
-  const classes = [
-    styles.root,
-    error && styles.error,
+  const wrapperClasses = [
+    styles.inputWrapper,
+    styles[size],
     rounded && styles.rounded,
-    icon && styles.withIcon,
-    icon && iconPosition === "right" && styles.right,
-    className,
+    error && styles.error,
+    props.disabled && styles.disabled,
   ]
     .filter(Boolean)
     .join(" ");
+
+  const classes = [styles.root, className].filter(Boolean).join(" ");
+
+  const iconElement = icon && (
+    <span className={styles.icon} aria-hidden="true">
+      {icon}
+    </span>
+  );
 
   const showError = Boolean(error && shownMessage);
 
@@ -86,17 +95,8 @@ export function Input({
         )}
       </label>
 
-      <div className={[styles.inputWrapper, styles[size]].join(" ")}>
-        {icon && (
-          <span
-            className={[styles.icon, iconPosition === "right" && styles.right]
-              .filter(Boolean)
-              .join(" ")}
-            aria-hidden="true"
-          >
-            {icon}
-          </span>
-        )}
+      <div className={wrapperClasses}>
+        {iconPosition === "left" && iconElement}
         <input
           {...props}
           id={inputId}
@@ -105,6 +105,8 @@ export function Input({
           aria-invalid={error || undefined}
           aria-describedby={describedBy}
         />
+        {iconPosition === "right" && iconElement}
+        {endSlot && <div className={styles.endSlot}>{endSlot}</div>}
       </div>
       {(description || shownMessage) && (
         <div
@@ -127,7 +129,7 @@ export function Input({
                 className={styles.errorText}
                 data-visible={showError ? "true" : "false"}
               >
-                <WarningIcon /> {shownMessage}
+                <IconAlertTriangleFilled aria-hidden="true" /> {shownMessage}
               </span>
             )}
           </div>

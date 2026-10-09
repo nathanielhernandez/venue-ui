@@ -55,6 +55,9 @@
   --venue-button-danger-bg-active: var(--venue-color-danger-active);
   --venue-button-danger-border: var(--venue-red-300);
 
+  /* Ghost */
+  --venue-button-ghost-bg-hover: var(--venue-gray-750);
+
   /* ----- TEXT INPUTS ----- */
 
   /* Default */
