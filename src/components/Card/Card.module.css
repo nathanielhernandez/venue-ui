@@ -16,6 +16,22 @@ h2.header {
   margin: 0 0 var(--venue-space-5) 0;
 }
 
+h2.header.smallHeader {
+  font-size: var(--venue-header-size-sm);
+}
+
+h2.header.mediumHeader {
+  font-size: var(--venue-header-size-md);
+}
+
+h2.header.largeHeader {
+  font-size: var(--venue-header-size-lg);
+}
+
+h2.header.xlargeHeader {
+  font-size: var(--venue-header-size-xl);
+}
+
 .endSlot {
   margin-top: var(--venue-space-5);
 }

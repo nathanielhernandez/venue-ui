@@ -3,6 +3,7 @@ import { Card } from "./Card";
 import { Input } from "../Input";
 import { PasswordInput } from "../PasswordInput";
 import { Button } from "../Button";
+import { EndSlot } from "./EndSlot";
 
 const meta = {
   component: Card,
@@ -10,14 +11,26 @@ const meta = {
   tags: ["autodocs"],
   args: {
     header: "Header",
+    headerSize: "medium",
     children: "This is an example of a card with text in it.",
-    endSlot: "You can also add things to the end slot.",
+    endSlot: undefined,
     padding: "large",
   },
   argTypes: {
+    headerSize: {
+      control: "select",
+      options: ["small", "medium", "large", "xlarge"],
+    },
     padding: {
       control: "select",
       options: ["small", "medium", "large", "xlarge"],
+    },
+    endSlot: {
+      options: ["none", "buttons"],
+      mapping: {
+        none: undefined,
+        buttons: <EndSlot />,
+      },
     },
   },
 } satisfies Meta<typeof Card>;
@@ -39,15 +52,17 @@ export const Test: Story = {
           gap: "var(--venue-space-3)",
         }}
       >
-        <Button variant="secondary">Cancel</Button>
-        <Button>Submit</Button>
+        <Button variant="secondary" size="medium">
+          Cancel
+        </Button>
+        <Button size="medium">Submit</Button>
       </div>
     ),
   },
   render: (args) => (
     <Card {...args} style={{ maxWidth: 400 }}>
-      <Input label="Email" type="email" />
-      <PasswordInput label="Password" />
+      <Input label="Email" type="email" size="medium" />
+      <PasswordInput label="Password" size="medium" />
     </Card>
   ),
 };
