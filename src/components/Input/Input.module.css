@@ -2,7 +2,7 @@
   padding: var(--_padding-y) var(--_padding-x);
   border: var(--venue-border-width-thin) solid var(--venue-color-border);
 
-  font-size: var(--venue-font-size-md);
+  font-size: inherit;
   font-family: var(--venue-font-family-sans);
   line-height: var(--venue-line-height-1);
   color: var(--venue-color-text);
@@ -56,11 +56,13 @@
 }
 
 .withIcon {
-  padding-inline-start: calc(var(--_padding-x) * 2 + 1em);
+  padding-inline-start: calc(
+    var(--_padding-x) * 2 + 1em
+  ); /* applies to every icon input */
 }
 
 .withIcon.right {
-  padding-inline-start: auto;
+  padding-inline-start: var(--_padding-x);
   padding-inline-end: calc(var(--_padding-x) * 2 + 1em);
 }
 
@@ -215,6 +217,15 @@
 .root:disabled {
   opacity: 0.5;
   background-color: var(--venue-input-bg-disabled);
-  border: var(--venue-input-bg-disabled);
+  border-color: var(--venue-input-bg-disabled);
   cursor: not-allowed;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }

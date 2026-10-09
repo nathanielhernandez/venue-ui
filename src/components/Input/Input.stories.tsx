@@ -9,6 +9,7 @@ const meta = {
   tags: ["autodocs"],
   args: {
     label: "Label",
+    hideLabel: false,
     placeholder: "Placeholder",
     type: "text",
     required: false,
@@ -26,6 +27,10 @@ const meta = {
       control: "select",
       options: ["small", "medium", "large", "xlarge"],
     },
+    errorMessage: {
+      control: "text",
+      if: { arg: "error" },
+    },
     icon: {
       options: ["none", "rocket"],
       mapping: {
@@ -33,6 +38,11 @@ const meta = {
         rocket: <FaRocket />,
       },
       control: "select",
+    },
+    iconPosition: {
+      control: "inline-radio",
+      options: ["left", "right"],
+      if: { arg: "icon" }, // only show when icon is set
     },
     onChange: { action: "changed" },
   },
@@ -54,5 +64,17 @@ export const Default: Story = {
 };
 
 export const WithIcon: Story = {
-  args: { icon: <FaRocket />, iconPosition: "left" },
+  args: { icon: <FaRocket /> },
+  render: (args) => (
+    <div
+      style={{
+        display: "flex",
+        gap: "var(--venue-space-5)",
+        alignItems: "center",
+      }}
+    >
+      <Input {...args} />
+      <Input {...args} iconPosition="right" />
+    </div>
+  ),
 };

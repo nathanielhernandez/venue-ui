@@ -11,6 +11,7 @@ type InputTypes = "text" | "email" | "tel" | "url";
 
 type BaseInputProps = Omit<ComponentPropsWithRef<"input">, "type" | "size"> & {
   label: string;
+  hideLabel?: boolean;
   error?: boolean;
   errorMessage?: string;
   description?: string;
@@ -28,6 +29,7 @@ export type InputProps = TextInputProps;
 
 export function Input({
   label,
+  hideLabel = false,
   id,
   className,
   required,
@@ -52,7 +54,7 @@ export function Input({
     styles.root,
     error && styles.error,
     rounded && styles.rounded,
-    icon && iconPosition === "left" && styles.withIcon,
+    icon && styles.withIcon,
     icon && iconPosition === "right" && styles.right,
     className,
   ]
@@ -72,7 +74,10 @@ export function Input({
 
   return (
     <div className={styles.componentWrapper}>
-      <label htmlFor={inputId} className={styles.label}>
+      <label
+        htmlFor={inputId}
+        className={hideLabel ? styles.visuallyHidden : styles.label}
+      >
         {label}
         {required && (
           <span className={styles.required} aria-hidden="true">
@@ -80,6 +85,7 @@ export function Input({
           </span>
         )}
       </label>
+
       <div className={[styles.inputWrapper, styles[size]].join(" ")}>
         {icon && (
           <span
