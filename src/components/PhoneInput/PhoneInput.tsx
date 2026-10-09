@@ -25,6 +25,7 @@ const format = (digits: string) => {
 const parse = (text: string) => text.replace(/\D/g, "").slice(0, 10);
 
 export function PhoneInput({
+  placeholder = "(123) 123-1234",
   value,
   defaultValue = "",
   onChange,
@@ -38,6 +39,7 @@ export function PhoneInput({
     <>
       <Input
         {...props}
+        placeholder={placeholder}
         type="tel"
         inputMode="tel"
         autoComplete="tel"
