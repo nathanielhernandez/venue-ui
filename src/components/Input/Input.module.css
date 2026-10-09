@@ -181,3 +181,12 @@
 
   font-size: var(--venue-font-size-lg);
 }
+
+/* DISABLED */
+
+.root:disabled {
+  opacity: 0.5;
+  background-color: var(--venue-input-bg-disabled);
+  border: var(--venue-input-bg-disabled);
+  cursor: not-allowed;
+}

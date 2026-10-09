@@ -63,6 +63,9 @@
   /* Required */
   --venue-input-required: var(--venue-red-300);
 
+  /* Disabled */
+  --venue-input-bg-disabled: var(--venue-gray-750);
+
   /* Error */
   --venue-input-danger-text: var(--venue-red-300);
   --venue-input-danger-border: var(--venue-red-300);
