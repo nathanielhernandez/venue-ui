@@ -2,9 +2,9 @@ import { type HTMLAttributes, type ReactNode } from "react";
 import styles from "./Card.module.css";
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  header?: string;
+  header?: string | ReactNode;
   padding?: "small" | "medium" | "large" | "xlarge";
-  endSlot?: ReactNode;
+  endSlot?: string | ReactNode;
 }
 
 export function Card({
@@ -22,7 +22,7 @@ export function Card({
     <div className={cardClasses} {...props}>
       {header && <h2 className={styles.header}>{header}</h2>}
       {children}
-      <div className={styles.endSlot}>{endSlot}</div>
+      {endSlot && <div className={styles.endSlot}>{endSlot}</div>}
     </div>
   );
 }

@@ -9,7 +9,9 @@ const meta = {
   title: "Components/Card",
   tags: ["autodocs"],
   args: {
-    header: "",
+    header: "Header",
+    children: "This is an example of a card with text in it.",
+    endSlot: "You can also add things to the end slot.",
     padding: "large",
   },
   argTypes: {
@@ -32,7 +34,7 @@ export const Test: Story = {
     endSlot: (
       <div
         style={{
-          display: "inline-flex",
+          display: "flex",
           justifyContent: "end",
           gap: "var(--venue-space-3)",
         }}
@@ -43,7 +45,7 @@ export const Test: Story = {
     ),
   },
   render: (args) => (
-    <Card {...args}>
+    <Card {...args} style={{ maxWidth: 400 }}>
       <Input label="Email" type="email" />
       <PasswordInput label="Password" />
     </Card>
