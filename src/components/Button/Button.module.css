@@ -84,6 +84,22 @@
   background: var(--venue-button-tertiary-bg-active);
 }
 
+/* GHOST */
+
+.ghost {
+  background: transparent;
+  border-color: transparent;
+  color: inherit;
+}
+
+.ghost.iconOnly {
+  padding: var(--venue-space-2);
+}
+
+.ghost:hover:not(:disabled) {
+  background: var(--venue-button-ghost-bg-hover);
+}
+
 /* DANGER BUTTON STYLES */
 
 .danger {

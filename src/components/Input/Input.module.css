@@ -1,12 +1,22 @@
-.root {
-  padding: var(--_padding-y) var(--_padding-x);
+/* WRAPPER */
+
+.componentWrapper {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+/* The bordered field box: lays out icon, input, and slot in a row */
+.inputWrapper {
+  --_fill: var(--venue-input-bg);
+  --_padding-y: var(--venue-space-3);
+  --_padding-x: var(--venue-space-4);
+
+  display: flex;
+  align-items: center;
+  gap: var(--_padding-x);
+
+  padding-inline: var(--_padding-x);
   border: var(--venue-border-width-thin) solid var(--venue-color-border);
-
-  font-size: inherit;
-  font-family: var(--venue-font-family-sans);
-  line-height: var(--venue-line-height-1);
-  color: var(--venue-color-text);
-
   background-color: var(--_fill);
 
   transition:
@@ -15,55 +25,45 @@
   cursor: text;
 }
 
-.root::placeholder {
-  color: var(--venue-color-text-muted);
-}
-
-.root:focus-visible {
+.inputWrapper:has(.root:focus-visible) {
   border-color: var(--venue-color-focus-ring);
   box-shadow: inset 0 0 0 1px var(--venue-color-focus-ring);
   outline: 2px solid transparent; /* visible in Windows high-contrast mode */
 }
 
-/* WRAPPER */
+/* INPUT */
 
-.componentWrapper {
-  display: inline-flex;
-  flex-direction: column;
+.root {
+  flex: 1;
+  min-width: 0; /* lets the input shrink inside the flex row */
+  padding: var(--_padding-y) 0;
+  border: none;
+  outline: none; /* the wrapper shows focus instead */
+
+  font-size: inherit;
+  font-family: var(--venue-font-family-sans);
+  line-height: var(--venue-line-height-1);
+  color: var(--venue-color-text);
+
+  background: transparent;
 }
 
-.inputWrapper {
-  --_fill: var(--venue-input-bg);
-  --_padding-y: var(--venue-space-3);
-  --_padding-x: var(--venue-space-4);
-
-  position: relative;
+.root::placeholder {
+  color: var(--venue-color-text-muted);
 }
+
+/* ICONS */
 
 .icon {
-  position: absolute;
-  inset-block: 0;
-  inset-inline-start: var(--_padding-x);
   display: flex;
-  align-items: center;
-  pointer-events: none;
   color: var(--venue-input-icon-color);
 }
 
-.icon.right {
-  inset-inline-start: auto;
-  inset-inline-end: var(--_padding-x);
-}
+/* SLOTS */
 
-.withIcon {
-  padding-inline-start: calc(
-    var(--_padding-x) * 2 + 1em
-  ); /* applies to every icon input */
-}
-
-.withIcon.right {
-  padding-inline-start: var(--_padding-x);
-  padding-inline-end: calc(var(--_padding-x) * 2 + 1em);
+.endSlot {
+  display: flex;
+  align-items: center;
 }
 
 /* LABEL */
@@ -89,7 +89,7 @@
   border-color: var(--venue-input-danger-border);
 }
 
-.error:focus-visible {
+.error:has(.root:focus-visible) {
   border-color: var(--venue-input-danger-border);
   box-shadow: inset 0 0 0 1px var(--venue-input-danger-border);
   outline: 2px solid transparent;
@@ -214,10 +214,14 @@
 
 /* DISABLED */
 
-.root:disabled {
+.disabled {
   opacity: 0.5;
   background-color: var(--venue-input-bg-disabled);
   border-color: var(--venue-input-bg-disabled);
+  cursor: not-allowed;
+}
+
+.root:disabled {
   cursor: not-allowed;
 }
 
