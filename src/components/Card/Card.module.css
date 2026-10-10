@@ -1,7 +1,78 @@
 .root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--venue-space-5);
   background-color: var(--venue-color-surface);
   border: var(--venue-border-width-thin) solid var(--venue-color-surface-border);
-  padding: var(--venue-space-4);
   color: var(--venue-color-text);
   border-radius: var(--venue-radius-md);
+  font-family: var(--venue-font-family-sans);
+}
+
+/* HEADER */
+
+.headerContainer {
+  --_font-size: var(--venue-header-size-md);
+
+  font-size: var(--_font-size);
+  display: flex;
+  align-items: center;
+  gap: var(--venue-space-2);
+  margin-bottom: var(--venue-space-4);
+}
+
+.smallHeader {
+  --_font-size: var(--venue-header-size-sm);
+}
+
+.mediumHeader {
+  --_font-size: var(--venue-header-size-md);
+}
+
+.largeHeader {
+  --_font-size: var(--venue-header-size-lg);
+}
+
+.xlargeHeader {
+  --_font-size: var(--venue-header-size-xl);
+}
+
+.header {
+  font-size: inherit;
+  margin: 0;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+.icon svg {
+  width: 1em;
+  height: 1em;
+}
+
+/* ENDS LOT */
+
+.endSlot {
+  margin-top: auto;
+  padding-top: var(--venue-space-4);
+}
+
+/* PADDING */
+
+.small {
+  padding: var(--venue-space-3);
+}
+
+.medium {
+  padding: var(--venue-space-5);
+}
+
+.large {
+  padding: var(--venue-space-6);
+}
+
+.xlarge {
+  padding: var(--venue-space-7);
 }

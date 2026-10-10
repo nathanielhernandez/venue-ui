@@ -73,4 +73,8 @@
   /* Error */
   --venue-input-danger-text: var(--venue-red-300);
   --venue-input-danger-border: var(--venue-red-300);
+
+  /* ----- LABELS ----- */
+
+  --venue-label-color: var(--venue-gray-500);
 }
