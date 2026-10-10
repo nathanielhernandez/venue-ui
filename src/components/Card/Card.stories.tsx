@@ -4,6 +4,7 @@ import { Input } from "../Input";
 import { PasswordInput } from "../PasswordInput";
 import { Button } from "../Button";
 import { EndSlot } from "./EndSlot";
+import { IconRocket } from "@tabler/icons-react";
 
 const meta = {
   component: Card,
@@ -12,14 +13,23 @@ const meta = {
   args: {
     header: "Header",
     headerSize: "medium",
+    icon: undefined,
     children: "This is an example of a card with text in it.",
     endSlot: undefined,
     padding: "large",
   },
   argTypes: {
+    header: { control: "text" },
     headerSize: {
       control: "select",
       options: ["small", "medium", "large", "xlarge"],
+    },
+    icon: {
+      options: ["none", "rocket"],
+      mapping: {
+        none: undefined,
+        rocket: <IconRocket />,
+      },
     },
     padding: {
       control: "select",
