@@ -1,7 +1,7 @@
 /* WRAPPER */
 
 .componentWrapper {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
 }
 
@@ -75,10 +75,10 @@
 
 .label {
   margin-bottom: var(--venue-space-2);
-  color: var(--venue-color-text);
+  color: var(--venue-label-color);
   font-family: var(--venue-font-family-sans);
   font-size: var(--venue-font-size-sm);
-  font-weight: var(--venue-font-weight-semibold);
+  /* font-weight: var(--venue-font-weight-semibold); */
 }
 
 /* REQUIRED */
