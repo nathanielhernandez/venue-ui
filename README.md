@@ -38,12 +38,12 @@ Import the tokens once at your app's entry point, then use components:
 
 ```tsx
 import "@nathanielhernandez/venue-ui/tokens.css";
-import { TextInput } from "@nathanielhernandez/venue-ui";
+import { Input } from "@nathanielhernandez/venue-ui";
 
 export function SignUpForm() {
   return (
-    <TextInput
-      label="Emai"
+    <Input
+      label="Email"
       type="email"
       description="We'll never share it. Promise"
     />

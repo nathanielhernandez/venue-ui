@@ -44,7 +44,7 @@ export function Button({
     styles[size],
     styles[tone],
     fullWidth && styles.fullWidth,
-    !children && styles.iconOnly,
+    icon && !children && styles.iconOnly,
     className,
   ]
     .filter(Boolean)

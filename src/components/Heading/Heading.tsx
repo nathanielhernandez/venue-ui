@@ -1,7 +1,13 @@
 import { type HTMLAttributes, type ReactNode } from "react";
 import styles from "./Heading.module.css";
 
-type HeadingSize = "small" | "medium" | "large" | "xlarge" | "xxlarge";
+type HeadingSize =
+  | "xsmall"
+  | "small"
+  | "medium"
+  | "large"
+  | "xlarge"
+  | "xxlarge";
 
 export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   children: ReactNode;
@@ -15,7 +21,7 @@ const defaultSize: Record<1 | 2 | 3 | 4 | 5 | 6, HeadingSize> = {
   3: "large",
   4: "medium",
   5: "small",
-  6: "small",
+  6: "xsmall",
 };
 
 export function Heading({

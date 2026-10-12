@@ -22,7 +22,7 @@ const meta = {
   argTypes: {
     variant: {
       control: "select",
-      options: ["primary", "secondary", "tertiary"],
+      options: ["primary", "secondary", "tertiary", "ghost"],
     },
     size: {
       control: "select",
@@ -86,9 +86,16 @@ export const Tertiary: Story = {
 export const Ghost: Story = {
   args: {
     variant: "ghost",
-    children: "",
-    leadingVisual: <IconRocket />,
-    "aria-label": "launch",
+    icon: <IconRocket />,
+    children: undefined,
+    leadingVisual: undefined,
+    trailingVisual: undefined,
+    "aria-label": "Launch",
+  },
+  argTypes: {
+    children: { control: false },
+    leadingVisual: { control: false },
+    trailingVisual: { control: false },
   },
 };
 
