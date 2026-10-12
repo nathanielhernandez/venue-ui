@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { ComponentProps } from "react";
 import { Card } from "./Card";
-import { Input } from "../Input";
-import { PasswordInput } from "../PasswordInput";
-import { Button } from "../Button";
 import { ExampleFooter } from "./ExampleFooter";
 import { IconRocket } from "@tabler/icons-react";
 
@@ -10,39 +8,12 @@ const meta = {
   component: Card,
   title: "Components/Card",
   tags: ["autodocs"],
-  args: {
-    header: "Header",
-    headerSize: "medium",
-    leadingVisual: undefined,
-    children:
-      "lorem ipsum dolor sit amet consectetur adipiscing elit soluta cillum qui dolore vel ut quod cupiditate et esse labore cumque deserunt est quos laboris aliquip est voluptatum cupiditate est facilis et libero cum sunt non est exercitation soluta est commodo sit quas libero sint dolores veniam consequatur ut sunt duis",
-    footer: undefined,
-    padding: "medium",
-  },
-  argTypes: {
-    header: { control: "text" },
-    headerSize: {
-      control: "select",
-      options: ["small", "medium", "large", "xlarge"],
-    },
-    leadingVisual: {
-      options: ["none", "rocket"],
-      mapping: {
-        none: undefined,
-        rocket: <IconRocket />,
-      },
-    },
-    padding: {
-      control: "select",
-      options: ["small", "medium", "large"],
-    },
-    footer: {
-      options: ["none", "buttons"],
-      mapping: {
-        none: undefined,
-        buttons: <ExampleFooter />,
-      },
-    },
+  subcomponents: {
+    "Card.Header": Card.Header,
+    "Card.Icon": Card.Icon,
+    "Card.Title": Card.Title,
+    "Card.Body": Card.Body,
+    "Card.Footer": Card.Footer,
   },
 } satisfies Meta<typeof Card>;
 
@@ -50,29 +21,73 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {};
-
-export const Test: Story = {
-  args: {
-    header: "Login",
-    footer: (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "var(--venue-space-3)",
-        }}
-      >
-        <Button size="medium" fullWidth>
-          Log In
-        </Button>
-      </div>
-    ),
-  },
+export const Default: Story = {
   render: (args) => (
-    <Card {...args} style={{ maxWidth: 400 }}>
-      <Input label="Email" type="email" size="medium" />
-      <PasswordInput label="Password" size="medium" />
+    <Card {...args}>
+      <Card.Header>
+        <Card.Title>Card title</Card.Title>
+      </Card.Header>
+      <Card.Body>This is an example of a card with text in it.</Card.Body>
+    </Card>
+  ),
+};
+
+// Story-only args that turn into Card parts in render
+type PlaygroundArgs = ComponentProps<typeof Card> & {
+  title: string;
+  headerSize: "small" | "medium" | "large" | "xlarge";
+  headingLevel: 1 | 2 | 3 | 4 | 5 | 6;
+  showIcon: boolean;
+  showFooter: boolean;
+};
+
+export const Playground: StoryObj<PlaygroundArgs> = {
+  args: {
+    title: "Card title",
+    headerSize: "medium",
+    headingLevel: 2,
+    showIcon: false,
+    showFooter: false,
+    padding: "medium",
+  },
+  argTypes: {
+    title: { control: "text", description: "Card.Title text" },
+    headerSize: {
+      control: "select",
+      options: ["small", "medium", "large", "xlarge"],
+      description: "Card.Header `size`",
+    },
+    headingLevel: {
+      control: "select",
+      options: [1, 2, 3, 4, 5, 6],
+      description: "Card.Title `headingLevel`",
+    },
+    showIcon: { description: "Render Card.Icon" },
+    showFooter: { description: "Render Card.Footer" },
+  },
+  render: ({
+    title,
+    headerSize,
+    headingLevel,
+    showIcon,
+    showFooter,
+    ...args
+  }) => (
+    <Card {...args}>
+      <Card.Header size={headerSize}>
+        {showIcon && (
+          <Card.Icon>
+            <IconRocket />
+          </Card.Icon>
+        )}
+        <Card.Title headingLevel={headingLevel}>{title}</Card.Title>
+      </Card.Header>
+      <Card.Body>This is an example of a card with text in it.</Card.Body>
+      {showFooter && (
+        <Card.Footer>
+          <ExampleFooter />
+        </Card.Footer>
+      )}
     </Card>
   ),
 };
