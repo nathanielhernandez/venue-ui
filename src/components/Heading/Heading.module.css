@@ -1,0 +1,26 @@
+.root {
+  font-family: var(--venue-font-family-sans);
+  line-height: var(--venue-line-height-tight);
+  font-weight: var(--venue-font-weight-bold);
+  margin: 0;
+}
+
+.xxlarge {
+  font-size: var(--venue-header-size-xxl);
+}
+
+.xlarge {
+  font-size: var(--venue-header-size-xl);
+}
+
+.large {
+  font-size: var(--venue-header-size-lg);
+}
+
+.medium {
+  font-size: var(--venue-header-size-md);
+}
+
+.small {
+  font-size: var(--venue-header-size-sm);
+}
