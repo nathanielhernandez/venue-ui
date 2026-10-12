@@ -3,7 +3,7 @@ import { Card } from "./Card";
 import { Input } from "../Input";
 import { PasswordInput } from "../PasswordInput";
 import { Button } from "../Button";
-import { EndSlot } from "./EndSlot";
+import { ExampleFooter } from "./ExampleFooter";
 import { IconRocket } from "@tabler/icons-react";
 
 const meta = {
@@ -13,10 +13,11 @@ const meta = {
   args: {
     header: "Header",
     headerSize: "medium",
-    icon: undefined,
-    children: "This is an example of a card with text in it.",
-    endSlot: undefined,
-    padding: "large",
+    leadingVisual: undefined,
+    children:
+      "lorem ipsum dolor sit amet consectetur adipiscing elit soluta cillum qui dolore vel ut quod cupiditate et esse labore cumque deserunt est quos laboris aliquip est voluptatum cupiditate est facilis et libero cum sunt non est exercitation soluta est commodo sit quas libero sint dolores veniam consequatur ut sunt duis",
+    footer: undefined,
+    padding: "medium",
   },
   argTypes: {
     header: { control: "text" },
@@ -24,7 +25,7 @@ const meta = {
       control: "select",
       options: ["small", "medium", "large", "xlarge"],
     },
-    icon: {
+    leadingVisual: {
       options: ["none", "rocket"],
       mapping: {
         none: undefined,
@@ -33,13 +34,13 @@ const meta = {
     },
     padding: {
       control: "select",
-      options: ["small", "medium", "large", "xlarge"],
+      options: ["small", "medium", "large"],
     },
-    endSlot: {
+    footer: {
       options: ["none", "buttons"],
       mapping: {
         none: undefined,
-        buttons: <EndSlot />,
+        buttons: <ExampleFooter />,
       },
     },
   },
@@ -54,18 +55,17 @@ export const Playground: Story = {};
 export const Test: Story = {
   args: {
     header: "Login",
-    endSlot: (
+    footer: (
       <div
         style={{
           display: "flex",
-          justifyContent: "end",
+          flexDirection: "column",
           gap: "var(--venue-space-3)",
         }}
       >
-        <Button variant="secondary" size="medium">
-          Cancel
+        <Button size="medium" fullWidth>
+          Log In
         </Button>
-        <Button size="medium">Submit</Button>
       </div>
     ),
   },

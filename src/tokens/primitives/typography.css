@@ -1,11 +1,12 @@
 :root {
   --venue-font-family-sans: "Archivo", system-ui, -apple-system, sans-serif;
-  --venue-font-family-mono: "Roboto Mono", system-ui, -apple-system, mono;
+  --venue-font-family-mono: "Roboto Mono", ui-monospace, monospace;
 
   --venue-font-size-xs: 0.75rem;
   --venue-font-size-sm: 0.875rem;
   --venue-font-size-md: 1rem;
   --venue-font-size-lg: 1.25rem;
+  --venue-font-size-xl: 1.5rem;
 
   --venue-font-weight-regular: 400;
   --venue-font-weight-medium: 500;
@@ -18,5 +19,6 @@
   --venue-header-size-xl: 3rem;
   --venue-header-size-xxl: 4rem;
 
-  --venue-line-height-1: 1.2;
+  --venue-line-height-tight: 1.2;
+  --venue-line-height-normal: 1.5;
 }

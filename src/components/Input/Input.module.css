@@ -5,18 +5,21 @@
   flex-direction: column;
 }
 
-/* The bordered field box: lays out icon, input, and slot in a row */
+/* The bordered field box: lays out visuals, input, and action in a row */
 .inputWrapper {
   --_fill: var(--venue-input-bg);
-  --_padding-y: var(--venue-space-3);
   --_padding-x: var(--venue-space-4);
+  --_height: var(--venue-control-height-lg);
 
   display: flex;
   align-items: center;
   gap: var(--_padding-x);
+  box-sizing: border-box;
+  height: var(--_height);
 
   padding-inline: var(--_padding-x);
   border: var(--venue-border-width-thin) solid var(--venue-color-border);
+  border-radius: var(--venue-radius-control);
   background-color: var(--_fill);
 
   transition:
@@ -25,10 +28,10 @@
   cursor: text;
 }
 
+/* Same focus ring as Button */
 .inputWrapper:has(.root:focus-visible) {
-  border-color: var(--venue-color-focus-ring);
-  box-shadow: inset 0 0 0 1px var(--venue-color-focus-ring);
-  outline: 2px solid transparent; /* visible in Windows high-contrast mode */
+  outline: var(--venue-border-width-thick) solid var(--venue-color-focus-ring);
+  outline-offset: var(--venue-border-width-thick);
 }
 
 /* INPUT */
@@ -36,13 +39,14 @@
 .root {
   flex: 1;
   min-width: 0; /* lets the input shrink inside the flex row */
-  padding: var(--_padding-y) 0;
+  padding: 0;
+  height: 100%;
   border: none;
   outline: none; /* the wrapper shows focus instead */
 
   font-size: inherit;
   font-family: var(--venue-font-family-sans);
-  line-height: var(--venue-line-height-1);
+  line-height: var(--venue-line-height-tight);
   color: var(--venue-color-text);
 
   background: transparent;
@@ -64,11 +68,27 @@
   height: 1em;
 }
 
-/* SLOTS */
+/* TRAILING ACTION */
 
-.endSlot {
+/* Pull the action closer to the right edge */
+.inputWrapper:has(.trailingAction) {
+  padding-inline-end: var(--venue-space-1);
+}
+
+.trailingAction {
   display: flex;
   align-items: center;
+  box-sizing: border-box;
+  height: 100%;
+  padding-block: var(
+    --venue-space-1
+  ); /* small inset from the top and bottom border */
+}
+
+/* .inputWrapper raises specificity above Button's size and variant classes */
+.inputWrapper .trailingAction > button {
+  height: 100%; /* fill the slot, not the Button's size height */
+  padding: 0; /* aspect-ratio keeps it square; flex centers the icon */
 }
 
 /* LABEL */
@@ -92,12 +112,6 @@
 
 .error {
   border-color: var(--venue-input-danger-border);
-}
-
-.error:has(.root:focus-visible) {
-  border-color: var(--venue-input-danger-border);
-  box-shadow: inset 0 0 0 1px var(--venue-input-danger-border);
-  outline: 2px solid transparent;
 }
 
 .errorText {
@@ -161,12 +175,6 @@
     visibility 0s; /* show immediately */
 }
 
-/* RADIUS */
-
-.rounded {
-  border-radius: var(--venue-radius-md);
-}
-
 /* MESSAGES */
 
 /* Collapses to zero height until a message is visible, then slides open */
@@ -197,38 +205,37 @@
 /* SIZES */
 
 .small {
-  --_padding-y: var(--venue-space-2);
   --_padding-x: var(--venue-space-3);
-
-  font-size: var(--venue-font-size-xs);
-}
-
-.medium {
-  --_padding-y: var(--venue-space-3);
-  --_padding-x: var(--venue-space-4);
+  --_height: var(--venue-control-height-sm);
 
   font-size: var(--venue-font-size-sm);
 }
 
-.large {
-  --_padding-y: var(--venue-space-4);
-  --_padding-x: var(--venue-space-5);
+.medium {
+  --_padding-x: var(--venue-space-4);
+  --_height: var(--venue-control-height-md);
+
   font-size: var(--venue-font-size-md);
 }
 
-.xlarge {
-  --_padding-y: var(--venue-space-5);
-  --_padding-x: var(--venue-space-6);
+.large {
+  --_padding-x: var(--venue-space-5);
+  --_height: var(--venue-control-height-lg);
 
   font-size: var(--venue-font-size-lg);
+}
+
+.xlarge {
+  --_padding-x: var(--venue-space-6);
+  --_height: var(--venue-control-height-xl);
+
+  font-size: var(--venue-font-size-xl);
 }
 
 /* DISABLED */
 
 .disabled {
   opacity: 0.5;
-  background-color: var(--venue-input-bg-disabled);
-  border-color: var(--venue-input-bg-disabled);
   cursor: not-allowed;
 }
 

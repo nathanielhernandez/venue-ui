@@ -6,13 +6,18 @@
   --venue-blue-700: #0050a0;
   --venue-blue-800: #003670;
 
-  --venue-gray-900: #08090a;
-  --venue-gray-850: #0e1114;
-  --venue-gray-800: #181f22;
+  /* 100, 300, 400, and 600 are blended from their neighbors; tune as needed */
+  --venue-gray-100: #d0d0d0;
+  --venue-gray-200: #a0a0a0;
+  --venue-gray-300: #8c9196;
+  --venue-gray-400: #77818b;
+  --venue-gray-500: #637281;
+  --venue-gray-600: #4c5864;
   --venue-gray-700: #353e47;
   --venue-gray-750: #252b31;
-  --venue-gray-500: #637281;
-  --venue-gray-200: #a0a0a0;
+  --venue-gray-800: #181f22;
+  --venue-gray-850: #0e1114;
+  --venue-gray-900: #08090a;
 
   /* REDS */
 

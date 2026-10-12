@@ -11,10 +11,11 @@ const meta = {
   args: {
     children: "Button",
     variant: "primary",
-    size: "large",
+    size: "medium",
+    fullWidth: false,
     tone: "neutral",
-    icon: "none",
-    rounded: true,
+    leadingVisual: "none",
+    trailingVisual: "none",
     disabled: false,
     onClick: fn(),
   },
@@ -31,7 +32,7 @@ const meta = {
       control: "radio",
       options: ["neutral", "danger"],
     },
-    icon: {
+    leadingVisual: {
       options: ["none", "rocket"],
       mapping: {
         none: undefined,
@@ -39,8 +40,13 @@ const meta = {
       },
       control: "select",
     },
-    rounded: {
-      control: "boolean",
+    trailingVisual: {
+      options: ["none", "rocket"],
+      mapping: {
+        none: undefined,
+        rocket: <IconRocket />,
+      },
+      control: "select",
     },
     type: {
       control: false,
@@ -75,6 +81,15 @@ export const Secondary: Story = {
 
 export const Tertiary: Story = {
   args: { variant: "tertiary" },
+};
+
+export const Ghost: Story = {
+  args: {
+    variant: "ghost",
+    children: "",
+    leadingVisual: <IconRocket />,
+    "aria-label": "launch",
+  },
 };
 
 export const Disabled: Story = {
@@ -124,11 +139,21 @@ export const Danger: Story = {
 };
 
 export const IconButton: Story = {
-  args: { icon: <IconRocket />, children: "Launch" },
-  argTypes: { icon: { control: false } },
+  args: { leadingVisual: <IconRocket />, children: "Launch" },
+  argTypes: { leadingVisual: { control: false } },
 };
 
 export const IconOnly: Story = {
-  args: { icon: <IconRocket />, children: undefined, "aria-label": "Launch" },
-  argTypes: { children: { control: false } },
+  args: {
+    icon: <IconRocket />,
+    children: undefined,
+    leadingVisual: undefined,
+    trailingVisual: undefined,
+    "aria-label": "Launch",
+  },
+  argTypes: {
+    children: { control: false },
+    leadingVisual: { control: false },
+    trailingVisual: { control: false },
+  },
 };

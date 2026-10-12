@@ -15,11 +15,10 @@ type BaseInputProps = Omit<ComponentPropsWithRef<"input">, "type" | "size"> & {
   error?: boolean;
   errorMessage?: string;
   description?: string;
-  rounded?: boolean;
   size?: "small" | "medium" | "large" | "xlarge";
-  icon?: ReactNode;
-  iconPosition?: "left" | "right";
-  endSlot?: ReactNode;
+  leadingVisual?: ReactNode;
+  trailingVisual?: ReactNode;
+  trailingAction?: ReactNode;
 };
 
 type TextInputProps = BaseInputProps & {
@@ -38,11 +37,10 @@ export function Input({
   error,
   errorMessage,
   description,
-  endSlot,
-  rounded = true,
-  size = "large",
-  icon,
-  iconPosition = "left",
+  size = "medium",
+  leadingVisual,
+  trailingVisual,
+  trailingAction,
   ...props
 }: InputProps) {
   const generatedId = useId();
@@ -56,7 +54,6 @@ export function Input({
   const wrapperClasses = [
     styles.inputWrapper,
     styles[size],
-    rounded && styles.rounded,
     error && styles.error,
     props.disabled && styles.disabled,
   ]
@@ -65,11 +62,12 @@ export function Input({
 
   const classes = [styles.root, className].filter(Boolean).join(" ");
 
-  const iconElement = icon && (
-    <span className={styles.icon} aria-hidden="true">
-      {icon}
-    </span>
-  );
+  const visual = (node: ReactNode) =>
+    node && (
+      <span className={styles.icon} aria-hidden="true">
+        {node}
+      </span>
+    );
 
   const showError = Boolean(error && shownMessage);
 
@@ -97,7 +95,7 @@ export function Input({
       </label>
 
       <div className={wrapperClasses}>
-        {iconPosition === "left" && iconElement}
+        {visual(leadingVisual)}
         <input
           {...props}
           id={inputId}
@@ -107,8 +105,10 @@ export function Input({
           aria-invalid={error || undefined}
           aria-describedby={describedBy}
         />
-        {iconPosition === "right" && iconElement}
-        {endSlot && <div className={styles.endSlot}>{endSlot}</div>}
+        {visual(trailingVisual)}
+        {trailingAction && (
+          <div className={styles.trailingAction}>{trailingAction}</div>
+        )}
       </div>
       {(description || shownMessage) && (
         <div

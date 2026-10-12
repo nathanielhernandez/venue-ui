@@ -4,8 +4,8 @@
   gap: var(--venue-space-5);
   background-color: var(--venue-color-surface);
   border: var(--venue-border-width-thin) solid var(--venue-color-surface-border);
+  border-radius: var(--venue-radius-surface);
   color: var(--venue-color-text);
-  border-radius: var(--venue-radius-md);
   font-family: var(--venue-font-family-sans);
 }
 
@@ -39,6 +39,8 @@
 
 .header {
   font-size: inherit;
+  font-weight: var(--venue-font-weight-bold);
+  line-height: var(--venue-line-height-tight);
   margin: 0;
 }
 
@@ -52,9 +54,18 @@
   height: 1em;
 }
 
-/* ENDS LOT */
+/* CARD BODY */
 
-.endSlot {
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--venue-space-5);
+  line-height: var(--venue-line-height-normal);
+}
+
+/* FOOTER */
+
+.footer {
   margin-top: auto;
   padding-top: var(--venue-space-4);
 }
@@ -62,17 +73,13 @@
 /* PADDING */
 
 .small {
-  padding: var(--venue-space-3);
+  padding: var(--venue-space-4);
 }
 
 .medium {
-  padding: var(--venue-space-5);
-}
-
-.large {
   padding: var(--venue-space-6);
 }
 
-.xlarge {
+.large {
   padding: var(--venue-space-7);
 }
