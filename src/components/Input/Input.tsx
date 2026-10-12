@@ -60,7 +60,9 @@ export function Input({
     .filter(Boolean)
     .join(" ");
 
-  const classes = [styles.root, className].filter(Boolean).join(" ");
+  const classes = [styles.componentWrapper, className]
+    .filter(Boolean)
+    .join(" ");
 
   const visual = (node: ReactNode) =>
     node && (
@@ -81,7 +83,7 @@ export function Input({
       .join(" ") || undefined;
 
   return (
-    <div className={styles.componentWrapper}>
+    <div className={classes}>
       <label
         htmlFor={inputId}
         className={hideLabel ? styles.visuallyHidden : styles.label}
@@ -100,8 +102,8 @@ export function Input({
           {...props}
           id={inputId}
           type={type}
-          className={classes}
           required={required}
+          className={styles.root}
           aria-invalid={error || undefined}
           aria-describedby={describedBy}
         />

@@ -18,7 +18,7 @@
   font-weight: var(--venue-font-weight-semibold);
   font-size: var(--venue-font-size-md);
   font-family: var(--venue-font-family-sans);
-  line-height: 1.2;
+  line-height: var(--venue-line-height-tight);
   color: var(--venue-color-text);
 
   background: var(--_fill);

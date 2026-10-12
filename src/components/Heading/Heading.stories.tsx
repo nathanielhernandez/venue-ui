@@ -16,7 +16,7 @@ const meta = {
     },
     size: {
       control: "select",
-      options: [undefined, "small", "medium", "large", "xlarge", "xxlarge"],
+      options: ["xsmall", "small", "medium", "large", "xlarge", "xxlarge"],
     },
   },
 } satisfies Meta<typeof Heading>;

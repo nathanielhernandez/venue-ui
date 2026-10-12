@@ -24,3 +24,7 @@
 .small {
   font-size: var(--venue-header-size-sm);
 }
+
+.xsmall {
+  font-size: var(--venue-header-size-xs);
+}

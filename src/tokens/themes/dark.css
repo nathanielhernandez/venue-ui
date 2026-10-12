@@ -61,14 +61,11 @@
   /* ----- TEXT INPUTS ----- */
 
   /* Default */
-  --venue-input-bg: none;
+  --venue-input-bg: transparent;
   --venue-input-icon-color: var(--venue-gray-500);
 
   /* Required */
   --venue-input-required: var(--venue-red-300);
-
-  /* Disabled */
-  --venue-input-bg-disabled: var(--venue-gray-750);
 
   /* Error */
   --venue-input-danger-text: var(--venue-red-300);
@@ -76,5 +73,5 @@
 
   /* ----- LABELS ----- */
 
-  --venue-label-color: var(--venue-gray-500);
+  --venue-label-color: var(--venue-gray-200);
 }
