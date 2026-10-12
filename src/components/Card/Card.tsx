@@ -1,5 +1,6 @@
 import { type HTMLAttributes, type ReactNode } from "react";
 import styles from "./Card.module.css";
+import { Heading } from "../Heading";
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   header?: ReactNode;
@@ -22,7 +23,6 @@ export function Card({
   className,
   ...props
 }: CardProps) {
-  const Heading = `h${headingLevel}` as const;
   const cardClasses = [styles.root, styles[padding], className]
     .filter(Boolean)
     .join(" ");
@@ -41,7 +41,9 @@ export function Card({
             </span>
           )}
 
-          <Heading className={styles.header}>{header}</Heading>
+          <Heading headingLevel={headingLevel} size={headerSize}>
+            {header}
+          </Heading>
         </div>
       )}
       <div className={styles.cardBody}>{children}</div>
