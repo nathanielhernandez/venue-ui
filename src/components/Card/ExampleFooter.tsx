@@ -1,5 +1,5 @@
 import { Button } from "../Button";
-export function EndSlot() {
+export function ExampleFooter() {
   return (
     <div
       style={{

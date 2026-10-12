@@ -5,5 +5,5 @@ body {
 
 /* docs pages: example boxes use our page background, not Storybook's */
 .docs-story {
-  background: var(--venue-color-surface);
+  background: var(--venue-color-bg);
 }

@@ -16,9 +16,7 @@ const meta = {
     errorMessage: "Error message",
     disabled: false,
     description: "",
-    rounded: true,
-    size: "large",
-    iconPosition: "left",
+    size: "medium",
   },
   argTypes: {
     type: { control: "select", options: ["text", "email", "tel", "url"] },
@@ -30,7 +28,7 @@ const meta = {
       control: "text",
       if: { arg: "error" },
     },
-    icon: {
+    leadingVisual: {
       options: ["none", "rocket"],
       mapping: {
         none: undefined,
@@ -38,10 +36,13 @@ const meta = {
       },
       control: "select",
     },
-    iconPosition: {
-      control: "inline-radio",
-      options: ["left", "right"],
-      if: { arg: "icon" }, // only show when icon is set
+    trailingVisual: {
+      options: ["none", "rocket"],
+      mapping: {
+        none: undefined,
+        rocket: <IconRocket />,
+      },
+      control: "select",
     },
     onChange: { action: "changed" },
   },
@@ -54,7 +55,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 export const WithIcon: Story = {
-  args: { icon: <IconRocket /> },
+  args: { leadingVisual: <IconRocket /> },
   render: (args) => (
     <div
       style={{
@@ -64,7 +65,11 @@ export const WithIcon: Story = {
       }}
     >
       <Input {...args} />
-      <Input {...args} iconPosition="right" />
+      <Input
+        {...args}
+        leadingVisual={undefined}
+        trailingVisual={<IconRocket />}
+      />
     </div>
   ),
 };

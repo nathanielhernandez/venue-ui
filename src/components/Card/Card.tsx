@@ -2,51 +2,50 @@ import { type HTMLAttributes, type ReactNode } from "react";
 import styles from "./Card.module.css";
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  header?: string | ReactNode;
+  header?: ReactNode;
   headerSize?: "small" | "medium" | "large" | "xlarge";
-  icon?: ReactNode;
-  description?: string | ReactNode;
-  padding?: "small" | "medium" | "large" | "xlarge";
-  endSlot?: string | ReactNode;
+  /** Heading level for the header; pick the one that fits the page outline */
+  headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  leadingVisual?: ReactNode;
+  padding?: "small" | "medium" | "large";
+  footer?: ReactNode;
 }
 
 export function Card({
   header,
   headerSize = "medium",
-  icon,
+  headingLevel = 2,
+  leadingVisual,
   children,
-  endSlot,
-  padding = "large",
+  footer,
+  padding = "medium",
   className,
   ...props
 }: CardProps) {
+  const Heading = `h${headingLevel}` as const;
   const cardClasses = [styles.root, styles[padding], className]
     .filter(Boolean)
     .join(" ");
   return (
     <div className={cardClasses} {...props}>
-      {(icon || header) && (
+      {(leadingVisual || header) && (
         <div
           className={[
             styles.headerContainer,
             styles[headerSize + "Header"],
           ].join(" ")}
         >
-          {icon && (
+          {leadingVisual && (
             <span className={styles.icon} aria-hidden="true">
-              {icon}
+              {leadingVisual}
             </span>
           )}
 
-          <h2
-            className={[styles.header, styles[headerSize + "Header"]].join(" ")}
-          >
-            {header}
-          </h2>
+          <Heading className={styles.header}>{header}</Heading>
         </div>
       )}
-      {children}
-      {endSlot && <div className={styles.endSlot}>{endSlot}</div>}
+      <div className={styles.cardBody}>{children}</div>
+      {footer && <div className={styles.footer}>{footer}</div>}
     </div>
   );
 }

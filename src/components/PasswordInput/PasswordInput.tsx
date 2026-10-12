@@ -10,7 +10,7 @@ export interface PasswordInputProps extends Omit<InputProps, "type"> {
 
 export function PasswordInput({
   label = "Password",
-  size = "large",
+  size = "medium",
   showPasswordObscureOption = true,
   ...props
 }: PasswordInputProps) {
@@ -23,7 +23,7 @@ export function PasswordInput({
         type={showHidePassword ? "text" : "password"}
         autoComplete="current-password"
         label={label}
-        endSlot={
+        trailingAction={
           showPasswordObscureOption && (
             <Button
               disabled={props.disabled}
