@@ -5,28 +5,34 @@ type BaseButtonProps = Omit<ComponentPropsWithRef<"button">, "children"> & {
   variant?: "primary" | "secondary" | "tertiary" | "ghost";
   size?: "small" | "medium" | "large" | "xlarge";
   tone?: "neutral" | "danger";
-  rounded?: boolean;
+  fullWidth?: boolean;
 };
 
 type TextButtonProps = BaseButtonProps & {
   children: ReactNode;
-  icon?: ReactNode;
+  leadingVisual?: ReactNode;
+  trailingVisual?: ReactNode;
+  icon?: never;
 };
 
 type IconButtonProps = BaseButtonProps & {
   children?: never;
   icon: ReactNode;
   "aria-label": string;
+  leadingVisual?: never;
+  trailingVisual?: never;
 };
 
 export type ButtonProps = TextButtonProps | IconButtonProps;
 
 export function Button({
   variant = "primary",
-  size = "large",
+  size = "medium",
   type = "button",
+  fullWidth = false,
   icon,
-  rounded = true,
+  leadingVisual,
+  trailingVisual,
   tone = "neutral",
   children,
   className,
@@ -37,21 +43,25 @@ export function Button({
     styles[variant],
     styles[size],
     styles[tone],
-    rounded && styles.rounded,
+    fullWidth && styles.fullWidth,
     !children && styles.iconOnly,
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
+  const visual = (node: ReactNode) =>
+    node && (
+      <span className={styles.icon} aria-hidden="true">
+        {node}
+      </span>
+    );
+
   return (
     <button type={type} className={classes} {...props}>
-      {icon && (
-        <span className={styles.icon} aria-hidden="true">
-          {icon}
-        </span>
-      )}
+      {visual(icon ?? leadingVisual)}
       {children}
+      {visual(trailingVisual)}
     </button>
   );
 }

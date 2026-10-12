@@ -13,8 +13,7 @@ const meta = {
     errorMessage: "Error message",
     disabled: false,
     description: "",
-    rounded: true,
-    size: "large",
+    size: "medium",
   },
   argTypes: {
     size: {

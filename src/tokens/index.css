@@ -7,5 +7,6 @@
 @import "./primitives/shadow.css";
 @import "./primitives/z-index.css";
 @import "./primitives/motion.css";
+@import "./primitives/sizing.css";
 @import "./themes/light.css";
 @import "./themes/dark.css";

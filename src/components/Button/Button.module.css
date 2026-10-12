@@ -3,19 +3,20 @@
   --_fill-hover: var(--venue-button-primary-bg-hover);
   --_fill-active: var(--venue-button-primary-bg-active);
   --_border: var(--venue-button-primary-border);
-  --_padding-y: var(--venue-space-3);
   --_padding-x: var(--venue-space-5);
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--venue-space-3);
+  height: var(--venue-control-height-md);
+  border-radius: var(--venue-radius-control);
 
-  padding: var(--_padding-y) var(--_padding-x);
+  padding: 0 var(--_padding-x);
   border: var(--venue-border-width-thin) solid var(--_border);
 
   font-weight: var(--venue-font-weight-semibold);
-  font-size: var(--venue-font-size-sm);
+  font-size: var(--venue-font-size-md);
   font-family: var(--venue-font-family-sans);
   line-height: 1.2;
   color: var(--venue-color-text);
@@ -92,10 +93,6 @@
   color: inherit;
 }
 
-.ghost.iconOnly {
-  padding: var(--venue-space-2);
-}
-
 .ghost:hover:not(:disabled) {
   background: var(--venue-button-ghost-bg-hover);
 }
@@ -117,38 +114,39 @@
 /* SIZES */
 
 .small {
-  --_padding-y: var(--venue-space-2);
   --_padding-x: var(--venue-space-4);
-  font-size: var(--venue-font-size-xs);
+
+  height: var(--venue-control-height-sm);
+  font-size: var(--venue-font-size-sm);
 }
 
 .medium {
-  --_padding-y: var(--venue-space-3);
   --_padding-x: var(--venue-space-5);
+
+  font-size: var(--venue-font-size-md);
+  height: var(--venue-control-height-md);
 }
 
 .large {
-  --_padding-y: var(--venue-space-4);
   --_padding-x: var(--venue-space-6);
-  font-size: var(--venue-font-size-md);
-}
-
-.xlarge {
-  --_padding-y: var(--venue-space-5);
-  --_padding-x: var(--venue-space-7);
+  height: var(--venue-control-height-lg);
   font-size: var(--venue-font-size-lg);
 }
 
-/* RADIUS */
+.xlarge {
+  --_padding-x: var(--venue-space-7);
+  height: var(--venue-control-height-xl);
+  font-size: var(--venue-font-size-xl);
+}
 
-.rounded {
-  border-radius: var(--venue-radius-md);
+.fullWidth {
+  width: 100%;
 }
 
 /* ICON */
 
 .iconOnly {
-  padding: var(--_padding-y);
+  padding: 0;
   aspect-ratio: 1;
 }
 
