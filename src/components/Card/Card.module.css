@@ -37,13 +37,6 @@
   --_font-size: var(--venue-header-size-xl);
 }
 
-.header {
-  font-size: inherit;
-  font-weight: var(--venue-font-weight-bold);
-  line-height: var(--venue-line-height-tight);
-  margin: 0;
-}
-
 .icon {
   display: flex;
   align-items: center;
